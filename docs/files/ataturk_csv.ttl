@@ -1,0 +1,101 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+wd:Q1519065 a schema:Legislation ;
+    dct:date "1951"^^xsd:gYear ;
+    schema:about wd:Q5152,
+        wd:Q615404 ;
+    schema:creator wd:Q274918 ;
+    schema:name "Law No. 5816 on Crimes Committed Against Atatürk" .
+
+wd:Q2005693 a schema:Book ;
+    dct:language wd:Q256 ;
+    schema:about wd:Q19079,
+        wd:Q269443,
+        wd:Q43 ;
+    schema:author wd:Q5152 ;
+    schema:datePublished "1927"^^xsd:gYear ;
+    schema:locationCreated wd:Q3640 ;
+    schema:name "Nutuk" .
+
+wd:Q31190822 a schema:Movie ;
+    schema:about wd:Q43,
+        wd:Q5152 ;
+    schema:datePublished "1958"^^xsd:gYear ;
+    schema:genre "documentary" ;
+    schema:name "The Incredible Turk" .
+
+wd:Q172872 a crm:E84_Information_Carrier ;
+    crm:P108i_was_produced_by wd:Q580829 ;
+    crm:P138_represents wd:Q5152 ;
+    schema:name "Turkish lira banknote" .
+
+wd:Q19079 a schema:PoliticalParty ;
+    crm:P138i_has_representation wd:Q6030041 ;
+    schema:about wd:Q269443 ;
+    schema:founder wd:Q5152 ;
+    schema:foundingDate "1923"^^xsd:gYear ;
+    schema:location wd:Q3640 ;
+    schema:name "Republican People's Party (CHP)" .
+
+wd:Q274918 a crm:E74_Group ;
+    schema:name "Grand National Assembly of Turkey" ;
+    schema:parentOrganization wd:Q43 .
+
+wd:Q5372464 a crm:E21_Person ;
+    schema:name "Emin Onat" .
+
+wd:Q580829 a crm:E74_Group ;
+    schema:name "Central Bank of the Republic of Turkey" ;
+    schema:parentOrganization wd:Q43 .
+
+wd:Q6065347 a crm:E21_Person ;
+    schema:name "Orhan Arda" .
+
+wd:Q615404 a schema:Mausoleum ;
+    crm:P43_has_dimension 720000.0 ;
+    crm:P67_refers_to wd:Q5152 ;
+    crm:P7i_witnessed wd:Q803181 ;
+    schema:architect wd:Q5372464,
+        wd:Q6065347 ;
+    schema:dateCreated "1953"^^xsd:gYear ;
+    schema:location wd:Q3640 ;
+    schema:name "Anıtkabir" .
+
+wd:Q803181 a schema:Event ;
+    dct:date "1923-10-29"^^xsd:date ;
+    crm:P11_had_participant wd:Q5152 ;
+    schema:about wd:Q43 ;
+    schema:location wd:Q3640 ;
+    schema:name "Republic Day" .
+
+wd:Q256 a crm:E56_Language ;
+    schema:name "Turkish" .
+
+wd:Q6030041 a crm:E36_Visual_Item ;
+    schema:name "The Six Arrows" .
+
+wd:Q269443 a skos:Concept ;
+    crm:P138i_has_representation wd:Q6030041 ;
+    crm:P67_refers_to wd:Q5152 ;
+    schema:name "Kemalism" .
+
+wd:Q3640 a schema:City ;
+    crm:P43_has_dimension 25.632 ;
+    crm:P74i_is_current_or_former_residence_of wd:Q5152 ;
+    schema:name "Ankara" .
+
+wd:Q43 a schema:Country ;
+    dct:language wd:Q256 ;
+    crm:P108_has_produced wd:Q172872 ;
+    wdt:P36 wd:Q3640 ;
+    schema:about wd:Q269443 ;
+    schema:founder wd:Q5152 ;
+    schema:foundingDate "1923-10-29"^^xsd:date ;
+    schema:name "Republic of Turkey" .
+

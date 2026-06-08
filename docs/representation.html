@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Representation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,17 +23,850 @@
   <main>
     <h2>Knowledge Representation</h2>
     <p>
-      This page will show how the data is represented and converted. It will
-      include the TEI/XML source text, the HTML output produced with XSLT, and the
-      final RDF graph in Turtle.
+      This page shows how the project turns text and tables into one RDF graph. The
+      TEI document is the core: the entities and relations stated in the text are
+      taken from it, the extra entities are added from CSV tables, and everything is
+      merged into a single dataset that follows the conceptual model exactly.
     </p>
-    <p><em>This section is still being prepared.</em></p>
+    <ol class="pipeline">
+      <li><strong>TEI/XML</strong> — the source text with the entities annotated.</li>
+      <li><strong>TEI → HTML</strong> (XSLT) — a readable web version of the text.</li>
+      <li><strong>TEI → RDF</strong> (Python) — the data stated in the text.</li>
+      <li><strong>CSV → RDF</strong> (Python) — the extra data not in the text.</li>
+      <li><strong>Merge</strong> (Python) — the two RDF parts joined into one graph.</li>
+    </ol>
+
+    <h2>1. TEI/XML document</h2>
+    <p>
+      The TEI file encodes short excerpts from the Wikipedia article on Atatürk. It
+      has two parts. The <strong>body</strong> keeps the logical structure of the
+      text (sections, headings, paragraphs) and annotates each of the ten entities
+      where it appears — using <code>&lt;persName&gt;</code>,
+      <code>&lt;placeName&gt;</code>, <code>&lt;orgName&gt;</code>,
+      <code>&lt;title&gt;</code> and <code>&lt;rs&gt;</code>. Quotations are marked
+      with <code>&lt;quote&gt;</code> as a textual phenomenon.
+    </p>
+    <p>
+      The <strong>header</strong> holds a record for every entity, grouped by type
+      (<code>&lt;listPerson&gt;</code>, <code>&lt;listPlace&gt;</code>,
+      <code>&lt;listOrg&gt;</code>, <code>&lt;listEvent&gt;</code>,
+      <code>&lt;listObject&gt;</code>, <code>&lt;listBibl&gt;</code>, and a
+      <code>&lt;taxonomy&gt;</code> for the concept). Each record is reconciled to an
+      authority file (<strong>Wikidata</strong>, plus <strong>VIAF</strong> and
+      <strong>GeoNames</strong> where available). Finally, a
+      <code>&lt;listRelation&gt;</code> records the relations between entities that
+      the text states.
+    </p>
+    <details class="code">
+  <summary>Show code<a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/tei/encoding.xml" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>encoding.xml</a></summary>
+  <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;TEI xmlns=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
+  &lt;teiHeader&gt;
+    &lt;fileDesc&gt;
+      &lt;titleStmt&gt;
+        &lt;title&gt;Mustafa Kemal Atatürk in Cultural Heritage&lt;/title&gt;
+        &lt;author&gt;Kübra Topçuoğlu&lt;/author&gt;
+      &lt;/titleStmt&gt;
+      &lt;publicationStmt&gt;
+        &lt;p&gt;Information Science and Cultural Heritage course project, 2026.&lt;/p&gt;
+      &lt;/publicationStmt&gt;
+
+      &lt;!-- Source of the text + records for textual/bibliographic works
+           (book, film, legislation). Each gets a Wikidata id for reconciliation. --&gt;
+      &lt;sourceDesc&gt;
+        &lt;bibl&gt;Text excerpts from the Wikipedia article &quot;Mustafa Kemal Atatürk&quot;,
+          &lt;ref target=&quot;https://en.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk&quot;&gt;en.wikipedia.org&lt;/ref&gt;.&lt;/bibl&gt;
+
+        &lt;listBibl&gt;
+          &lt;!-- Entity 5: Nutuk (book written by Atatürk) --&gt;
+          &lt;bibl xml:id=&quot;nutuk&quot;&gt;
+            &lt;author ref=&quot;#ataturk&quot;&gt;Mustafa Kemal Atatürk&lt;/author&gt;
+            &lt;title&gt;Nutuk&lt;/title&gt;
+            &lt;date when=&quot;1927&quot;&gt;1927&lt;/date&gt;
+            &lt;textLang mainLang=&quot;tr&quot;&gt;Turkish&lt;/textLang&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q2005693&lt;/idno&gt;
+          &lt;/bibl&gt;
+          &lt;!-- Entity 6: The Incredible Turk (documentary film about Atatürk) --&gt;
+          &lt;bibl xml:id=&quot;incredible_turk&quot; type=&quot;film&quot;&gt;
+            &lt;title&gt;The Incredible Turk&lt;/title&gt;
+            &lt;date when=&quot;1958&quot;&gt;1958&lt;/date&gt;
+            &lt;note&gt;Documentary film about Mustafa Kemal Atatürk.&lt;/note&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q31190822&lt;/idno&gt;
+          &lt;/bibl&gt;
+          &lt;!-- Entity 10: Law No. 5816 (legislation protecting Atatürk&#x27;s memory) --&gt;
+          &lt;bibl xml:id=&quot;law_5816&quot; type=&quot;legislation&quot;&gt;
+            &lt;title&gt;Law No. 5816 on Crimes Committed Against Atatürk&lt;/title&gt;
+            &lt;date when=&quot;1951&quot;&gt;1951&lt;/date&gt;
+            &lt;note&gt;Legislation protecting the memory of Atatürk.&lt;/note&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q1519065&lt;/idno&gt;
+          &lt;/bibl&gt;
+        &lt;/listBibl&gt;
+      &lt;/sourceDesc&gt;
+    &lt;/fileDesc&gt;
+
+    &lt;encodingDesc&gt;
+      &lt;!-- Entity 9: Kemalism, modelled as a concept in a TEI taxonomy --&gt;
+      &lt;classDecl&gt;
+        &lt;taxonomy xml:id=&quot;concepts&quot;&gt;
+        &lt;!---&lt;taxonomy&gt; → a classification scheme (a list of categories/concepts)--&gt;
+          &lt;category xml:id=&quot;kemalism&quot;&gt;
+            &lt;catDesc&gt;Kemalism — the founding ideology based on the principles of
+              &lt;persName ref=&quot;#ataturk&quot;&gt;Atatürk&lt;/persName&gt;.&lt;/catDesc&gt;
+              &lt;!--&lt;catDesc&gt; → the text that describes what that category means--&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q269443&lt;/idno&gt;
+          &lt;/category&gt;
+        &lt;/taxonomy&gt;
+      &lt;/classDecl&gt;
+    &lt;/encodingDesc&gt;
+
+    &lt;profileDesc&gt;
+      &lt;particDesc&gt;
+        &lt;!-- People: the main subject (Atatürk) and people from the source text.
+             Support entities (e.g. Anıtkabir&#x27;s architects) are NOT here because
+             they are not mentioned in the body text; they live in the CSV files. --&gt;
+        &lt;listPerson&gt;
+          &lt;person xml:id=&quot;ataturk&quot;&gt;
+            &lt;persName&gt;Mustafa Kemal Atatürk&lt;/persName&gt;
+            &lt;addName type=&quot;nickname&quot;&gt;Father of the Turks&lt;/addName&gt;
+            &lt;birth when=&quot;1881&quot;/&gt;
+            &lt;death when=&quot;1938-11-10&quot;/&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q5152&lt;/idno&gt;
+            &lt;idno type=&quot;VIAF&quot;&gt;https://viaf.org/viaf/87758727&lt;/idno&gt;
+          &lt;/person&gt;
+          
+        &lt;/listPerson&gt;
+
+        &lt;!-- Places: cities and the mausoleum (entities 3 and 8 + source places). --&gt;
+        &lt;listPlace&gt;
+          &lt;!-- Entity 8: Ankara (capital city) --&gt;
+          &lt;place xml:id=&quot;ankara&quot; type=&quot;city&quot;&gt;
+            &lt;placeName&gt;Ankara&lt;/placeName&gt;
+            &lt;note&gt;Capital of Turkey since 1923.&lt;/note&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q3640&lt;/idno&gt;
+            &lt;idno type=&quot;GeoNames&quot;&gt;https://sws.geonames.org/323786/&lt;/idno&gt;
+          &lt;/place&gt;
+          &lt;!-- Entity 3: Anıtkabir (mausoleum of Atatürk) --&gt;
+          &lt;place xml:id=&quot;anitkabir&quot; type=&quot;mausoleum&quot;&gt;
+            &lt;placeName&gt;Anıtkabir&lt;/placeName&gt;
+            &lt;note&gt;Mausoleum of Atatürk in Ankara.&lt;/note&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q615404&lt;/idno&gt;
+          &lt;/place&gt;
+        &lt;/listPlace&gt;
+
+        &lt;!-- Organisations / groups from the source text (state, party, ...).
+             Support institutions (assembly, central bank) are not mentioned in the
+             body text, so they are kept only in the CSV files. --&gt;
+        &lt;listOrg&gt;
+          &lt;!-- Entity 1: Republic of Türkiye --&gt;
+          &lt;org xml:id=&quot;turkey&quot; type=&quot;country&quot;&gt;
+            &lt;orgName&gt;Republic of Turkey&lt;/orgName&gt;
+            &lt;date type=&quot;founded&quot; when=&quot;1923-10-29&quot;&gt;29 October 1923&lt;/date&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q43&lt;/idno&gt;
+          &lt;/org&gt;
+          &lt;!-- Entity 2: CHP (party founded by Atatürk) --&gt;
+          &lt;org xml:id=&quot;chp&quot; type=&quot;political_party&quot;&gt;
+            &lt;orgName&gt;Republican People&#x27;s Party (CHP)&lt;/orgName&gt;
+            &lt;date type=&quot;founded&quot; when=&quot;1923&quot;&gt;1923&lt;/date&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q19079&lt;/idno&gt;
+          &lt;/org&gt;
+        &lt;/listOrg&gt;
+
+        &lt;!-- Entity 7: Republic Day (recurring event, 29 October). --&gt;
+        &lt;listEvent&gt;
+          &lt;event xml:id=&quot;republic_day&quot; when=&quot;--10-29&quot;&gt;
+            &lt;label&gt;Republic Day&lt;/label&gt;
+            &lt;desc&gt;Annual celebration of the proclamation of the Republic on 29 October 1923.&lt;/desc&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q803181&lt;/idno&gt;
+          &lt;/event&gt;
+        &lt;/listEvent&gt;
+
+        &lt;!-- Entity 4: Turkish lira banknote (physical object bearing his portrait). --&gt;
+        &lt;listObject&gt;
+          &lt;object xml:id=&quot;tl_banknote&quot;&gt;
+            &lt;objectIdentifier&gt;
+              &lt;objectName&gt;Turkish lira banknote&lt;/objectName&gt;
+            &lt;/objectIdentifier&gt;
+            &lt;note&gt;Banknote bearing the portrait of
+              &lt;persName ref=&quot;#ataturk&quot;&gt;Atatürk&lt;/persName&gt;.&lt;/note&gt;
+            &lt;idno type=&quot;Wikidata&quot;&gt;http://www.wikidata.org/entity/Q172872&lt;/idno&gt;
+          &lt;/object&gt;
+        &lt;/listObject&gt;
+
+        &lt;!-- Relations between entities. Only relations actually stated in the body
+             text are kept here; relations NOT in the text (architect, issuer, ...)
+             live in the CSV files. Identical triples merge later in RDF. --&gt;
+        &lt;listRelation&gt;
+          &lt;!-- &quot;Immortalisation&quot; relations supported by the annotated snippets --&gt;
+          &lt;relation name=&quot;founder&quot; active=&quot;#turkey&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;founder&quot; active=&quot;#chp&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;represents&quot; active=&quot;#tl_banknote&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;about&quot; active=&quot;#incredible_turk&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;author&quot; active=&quot;#nutuk&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;refers_to&quot; active=&quot;#anitkabir&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;refers_to&quot; active=&quot;#kemalism&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;about&quot; active=&quot;#law_5816&quot; passive=&quot;#ataturk&quot;/&gt;
+          &lt;relation name=&quot;location&quot; active=&quot;#anitkabir&quot; passive=&quot;#ankara&quot;/&gt;
+          &lt;relation name=&quot;capital&quot; active=&quot;#turkey&quot; passive=&quot;#ankara&quot;/&gt;
+          &lt;relation name=&quot;about&quot; active=&quot;#turkey&quot; passive=&quot;#kemalism&quot;/&gt;
+          &lt;relation name=&quot;location&quot; active=&quot;#republic_day&quot; passive=&quot;#ankara&quot;/&gt;
+        &lt;/listRelation&gt;
+      &lt;/particDesc&gt;
+    &lt;/profileDesc&gt;
+  &lt;/teiHeader&gt;
+
+  &lt;text&gt;
+    &lt;body&gt;
+      &lt;!-- The body holds short Wikipedia excerpts. Every one of the 10 entities is
+           mentioned and annotated with the matching element + @ref to its header id:
+             person -&gt; persName | place -&gt; placeName | org -&gt; orgName
+             work   -&gt; title    | event -&gt; rs/@type=&quot;event&quot;
+             object -&gt; rs/@type=&quot;object&quot; | concept -&gt; rs/@type=&quot;concept&quot;
+           Quotations are marked with &lt;quote&gt; (a &quot;textual phenomenon&quot;). --&gt;
+
+      &lt;div type=&quot;biography&quot;&gt;
+        &lt;head&gt;Life&lt;/head&gt;
+        &lt;p&gt;
+          &lt;persName ref=&quot;#ataturk&quot;&gt;Mustafa Kemal Atatürk&lt;/persName&gt;
+          (c. 1881 – 10 November 1938) was a Turkish field marshal and statesperson who was the
+          founder of the &lt;orgName ref=&quot;#turkey&quot;&gt;Republic of Turkey&lt;/orgName&gt; and served as its
+          first president from 1923 until his death in 1938.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;work&quot;&gt;
+        &lt;head&gt;Nutuk&lt;/head&gt;
+        &lt;p&gt;
+          His most famous text, &lt;title ref=&quot;#nutuk&quot;&gt;Nutuk&lt;/title&gt; [Speech], was published by the
+          Turkish Aeronautical Association in &lt;placeName ref=&quot;#ankara&quot;&gt;Ankara&lt;/placeName&gt; in 1927.
+          One of his best-known maxims is &lt;quote&gt;&quot;Peace at Home, Peace in the World&quot;&lt;/quote&gt;.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;mausoleum&quot;&gt;
+        &lt;head&gt;Anıtkabir&lt;/head&gt;
+        &lt;p&gt;
+          &lt;persName ref=&quot;#ataturk&quot;&gt;Atatürk&lt;/persName&gt;&#x27;s remains were originally laid to rest in the
+          Ethnography Museum of &lt;placeName ref=&quot;#ankara&quot;&gt;Ankara&lt;/placeName&gt;, but they were transferred
+          on 10 November 1953 to a mausoleum overlooking Ankara,
+          &lt;placeName ref=&quot;#anitkabir&quot;&gt;Anıtkabir&lt;/placeName&gt;.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;currency&quot;&gt;
+        &lt;head&gt;Banknotes&lt;/head&gt;
+        &lt;p&gt;
+          His face and name are seen everywhere in &lt;orgName ref=&quot;#turkey&quot;&gt;Turkey&lt;/orgName&gt;; his
+          portrait can be seen in public buildings, in schools, on all
+          &lt;rs type=&quot;object&quot; ref=&quot;#tl_banknote&quot;&gt;Turkish lira banknotes&lt;/rs&gt;, and in the homes of many
+          Turkish families.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;film&quot;&gt;
+        &lt;head&gt;The Incredible Turk&lt;/head&gt;
+        &lt;p&gt;
+          &lt;title ref=&quot;#incredible_turk&quot;&gt;The Incredible Turk&lt;/title&gt; is a documentary film about
+          &lt;persName ref=&quot;#ataturk&quot;&gt;Kemal Atatürk&lt;/persName&gt; and the modernization of the Turkish Republic.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;commemoration&quot;&gt;
+        &lt;head&gt;Republic Day&lt;/head&gt;
+        &lt;p&gt;
+          &lt;placeName ref=&quot;#anitkabir&quot;&gt;Anıtkabir&lt;/placeName&gt;, the mausoleum of
+          &lt;persName ref=&quot;#ataturk&quot;&gt;Atatürk&lt;/persName&gt; in &lt;placeName ref=&quot;#ankara&quot;&gt;Ankara&lt;/placeName&gt;,
+          is visited by large crowds every year during national holidays such as
+          &lt;rs type=&quot;event&quot; ref=&quot;#republic_day&quot;&gt;Republic Day&lt;/rs&gt; on 29 October.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;capital&quot;&gt;
+        &lt;head&gt;Capital&lt;/head&gt;
+        &lt;p&gt;
+          In forging the new republic, the Turkish revolutionaries made
+          &lt;placeName ref=&quot;#ankara&quot;&gt;Ankara&lt;/placeName&gt; the country&#x27;s new capital, turning away from
+          cosmopolitan Constantinople and its Ottoman heritage.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;ideology&quot;&gt;
+        &lt;head&gt;Kemalism&lt;/head&gt;
+        &lt;p&gt;
+          This defining ideology of the &lt;orgName ref=&quot;#turkey&quot;&gt;Republic of Turkey&lt;/orgName&gt; is referred
+          to as the &quot;Six Arrows&quot;, or &lt;rs type=&quot;concept&quot; ref=&quot;#kemalism&quot;&gt;Kemalism&lt;/rs&gt;.
+          &lt;rs type=&quot;concept&quot; ref=&quot;#kemalism&quot;&gt;Kemalism&lt;/rs&gt; is based on
+          &lt;persName ref=&quot;#ataturk&quot;&gt;Mustafa Kemal&lt;/persName&gt;&#x27;s conception of realism and pragmatism.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;party&quot;&gt;
+        &lt;head&gt;Republican People&#x27;s Party&lt;/head&gt;
+        &lt;p&gt;
+          At a private meeting of the &lt;orgName ref=&quot;#chp&quot;&gt;Republican People&#x27;s Party (CHP)&lt;/orgName&gt;,
+          &lt;persName ref=&quot;#ataturk&quot;&gt;Mustafa Kemal&lt;/persName&gt; expressed his fear of being among the
+          minority in his own party. After the majority of the CHP chose him, he said:
+          &lt;quote&gt;&quot;the Turkish nation is firmly determined to advance fearlessly on the path of the
+          republic, civilization and progress.&quot;&lt;/quote&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div type=&quot;law&quot;&gt;
+        &lt;head&gt;Law No. 5816&lt;/head&gt;
+        &lt;p&gt;
+          In 1951 the Turkish parliament issued the
+          &lt;title ref=&quot;#law_5816&quot;&gt;Law on Crimes Committed Against Atatürk&lt;/title&gt;, outlawing insults to
+          the memory of &lt;persName ref=&quot;#ataturk&quot;&gt;Atatürk&lt;/persName&gt; and the destruction of objects
+          representing him.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+    &lt;/body&gt;
+  &lt;/text&gt;
+&lt;/TEI&gt;
+</code></pre>
+</details>
+
+    <h2>2. TEI → HTML (XSLT)</h2>
+    <p>
+      The TEI/XML file keeps the content and its annotations in a structured form
+      that is meant for processing, not for direct reading. The point of this step
+      is to turn that same source into a page a person can actually read, without
+      copying or rewriting the text by hand: the content stays in the TEI file and
+      only its presentation is generated. It also lets a reader check the encoding
+      work, since the tagged entities become visible in the output.
+    </p>
+    <p>
+      An XSLT stylesheet reads the TEI file and produces a simple HTML page. Section
+      headings become <code>&lt;h2&gt;</code>, paragraphs become
+      <code>&lt;p&gt;</code>, and the annotated entities are shown in bold so the
+      reader can see which words were tagged. It is run with
+      <code>xsltproc tei_to_html.xsl encoding.xml &gt; encoding.html</code>.
+    </p>
+    <ul class="files">
+      <li><a href="files/encoding.html" target="_blank">encoding.html</a><span class="what">the HTML output</span></li>
+    </ul>
+    <details class="code">
+  <summary>Show code<a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/tei/tei_to_html.xsl" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>tei_to_html.xsl</a></summary>
+  <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;!-- ============================================================
+     TEI -&gt; HTML transformation
+     This stylesheet reads the TEI file (encoding.xml) and turns it
+     into a simple, readable HTML web page (encoding.html).
+     Run it with:  xsltproc tei_to_html.xsl encoding.xml &gt; encoding.html
+     ============================================================ --&gt;
+
+&lt;xsl:stylesheet version=&quot;1.0&quot;
+    xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+    xmlns:tei=&quot;http://www.tei-c.org/ns/1.0&quot;&gt;
+
+  &lt;!-- We want HTML (not XML) as the final output, encoded in UTF-8. --&gt;
+  &lt;xsl:output method=&quot;html&quot; encoding=&quot;UTF-8&quot; indent=&quot;yes&quot;/&gt;
+
+  &lt;!-- ============================================================
+       MAIN TEMPLATE: matches the root &lt;TEI&gt; element.
+       It builds the whole HTML page skeleton (html/head/body).
+       ============================================================ --&gt;
+  &lt;xsl:template match=&quot;/tei:TEI&quot;&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;!-- The page &lt;title&gt; is taken from the TEI &lt;title&gt; in the header. --&gt;
+        &lt;title&gt;&lt;xsl:value-of select=&quot;tei:teiHeader//tei:titleStmt/tei:title&quot;/&gt;&lt;/title&gt;
+        &lt;!-- A tiny bit of styling so the annotated entities stand out. --&gt;
+        &lt;style&gt;
+          body { font-family: sans-serif; max-width: 700px; margin: 40px auto; line-height: 1.6; }
+          .entity { font-weight: bold; }
+          .quote  { font-style: italic; color: #555; }
+        &lt;/style&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;!-- Big page heading = the TEI title. --&gt;
+        &lt;h1&gt;&lt;xsl:value-of select=&quot;tei:teiHeader//tei:titleStmt/tei:title&quot;/&gt;&lt;/h1&gt;
+        &lt;!-- Now process the text body (the divs with the Wikipedia excerpts). --&gt;
+        &lt;xsl:apply-templates select=&quot;tei:text/tei:body&quot;/&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;!-- ============================================================
+       Each &lt;div&gt; in the body becomes a section.
+       Its &lt;head&gt; becomes an &lt;h2&gt;, and its &lt;p&gt; becomes a paragraph.
+       &lt;xsl:apply-templates&gt; means &quot;keep processing what is inside&quot;.
+       ============================================================ --&gt;
+  &lt;xsl:template match=&quot;tei:div&quot;&gt;
+    &lt;xsl:apply-templates/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;!-- A TEI &lt;head&gt; (section heading) -&gt; HTML &lt;h2&gt;. --&gt;
+  &lt;xsl:template match=&quot;tei:head&quot;&gt;
+    &lt;h2&gt;&lt;xsl:apply-templates/&gt;&lt;/h2&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;!-- A TEI &lt;p&gt; (paragraph) -&gt; HTML &lt;p&gt;. --&gt;
+  &lt;xsl:template match=&quot;tei:p&quot;&gt;
+    &lt;p&gt;&lt;xsl:apply-templates/&gt;&lt;/p&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;!-- ============================================================
+       ENTITY ANNOTATIONS.
+       In the TEI text, real-world entities are tagged with
+       &lt;persName&gt;, &lt;placeName&gt;, &lt;orgName&gt;, &lt;title&gt; and &lt;rs&gt;.
+       Here we turn each of them into a &lt;span&gt; shown in bold,
+       so the reader can SEE which words were annotated as entities.
+       ============================================================ --&gt;
+  &lt;xsl:template match=&quot;tei:persName | tei:placeName | tei:orgName | tei:title | tei:rs&quot;&gt;
+    &lt;span class=&quot;entity&quot;&gt;&lt;xsl:apply-templates/&gt;&lt;/span&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;!-- A quotation &lt;quote&gt; -&gt; shown in italics. --&gt;
+  &lt;xsl:template match=&quot;tei:quote&quot;&gt;
+    &lt;span class=&quot;quote&quot;&gt;&lt;xsl:apply-templates/&gt;&lt;/span&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+</details>
+
+    <h2>3. TEI → RDF (Python)</h2>
+    <p>
+      This script reads the TEI file with Python's built-in XML library and writes
+      the relations stated in the text as RDF triples. Each entity uses its Wikidata
+      URI as its subject, so the data joins cleanly with the CSV part. It only uses
+      the classes and properties from the conceptual model.
+    </p>
+    <ul class="files">
+      <li><a href="files/ataturk_tei.ttl" target="_blank">ataturk_tei.ttl</a><span class="what">its RDF output</span></li>
+    </ul>
+    <details class="code">
+  <summary>Show code<a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/to_rdf/tei_to_rdf.py" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>tei_to_rdf.py</a></summary>
+  <pre><code class="language-python"># ============================================================
+# TEI -&gt; RDF transformation
+#
+# This script reads our TEI file (tei/encoding.xml) and produces
+# an RDF dataset (ataturk_tei.ttl) in Turtle format.
+#
+# It only uses the classes and properties that appear in our
+# conceptual model, so the data matches the ontology exactly.
+#
+# Run it from the &quot;Knowledge representation&quot; folder:
+#     python3 tei_to_rdf.py
+# ============================================================
+
+import os
+import xml.etree.ElementTree as ET          # built-in library to read XML
+from rdflib import Graph, Namespace, Literal, URIRef
+from rdflib.namespace import RDF            # gives us rdf:type
+
+# ----- 1. Namespaces (the same prefixes used in our conceptual model) -----
+CRM    = Namespace(&quot;http://www.cidoc-crm.org/cidoc-crm/&quot;)
+SCHEMA = Namespace(&quot;https://schema.org/&quot;)
+SKOS   = Namespace(&quot;http://www.w3.org/2004/02/skos/core#&quot;)
+WDT    = Namespace(&quot;http://www.wikidata.org/prop/direct/&quot;)
+WD     = Namespace(&quot;http://www.wikidata.org/entity/&quot;)   # our entities ARE Wikidata entities
+
+# This is the namespace TEI uses for all its tags. ElementTree needs the
+# full namespace in curly braces in front of every tag name.
+TEI = &quot;{http://www.tei-c.org/ns/1.0}&quot;
+# &quot;xml:id&quot; expands to this full attribute name.
+XML_ID = &quot;{http://www.w3.org/XML/1998/namespace}id&quot;
+
+# ----- 2. The conceptual model mapping -----
+# Each entity (by its TEI xml:id) is an instance of one class.
+TYPES = {
+    &quot;ataturk&quot;:         CRM.E21_Person,
+    &quot;turkey&quot;:          SCHEMA.Country,
+    &quot;chp&quot;:             SCHEMA.PoliticalParty,
+    &quot;anitkabir&quot;:       SCHEMA.Mausoleum,
+    &quot;tl_banknote&quot;:     CRM.E84_Information_Carrier,
+    &quot;nutuk&quot;:           SCHEMA.Book,
+    &quot;incredible_turk&quot;: SCHEMA.Movie,
+    &quot;republic_day&quot;:    SCHEMA.Event,
+    &quot;ankara&quot;:          SCHEMA.City,
+    &quot;kemalism&quot;:        SKOS.Concept,
+    &quot;law_5816&quot;:        SCHEMA.Legislation,
+}
+
+# Each relation name used in the TEI &lt;listRelation&gt; maps to a property.
+RELATIONS = {
+    &quot;founder&quot;:   SCHEMA.founder,
+    &quot;represents&quot;: CRM.P138_represents,
+    &quot;about&quot;:     SCHEMA.about,
+    &quot;author&quot;:    SCHEMA.author,
+    &quot;refers_to&quot;: CRM.P67_refers_to,
+    &quot;location&quot;:  SCHEMA.location,
+    &quot;capital&quot;:   WDT.P36,
+}
+
+# ----- 3. Open the TEI file -----
+HERE = os.path.dirname(os.path.abspath(__file__))   # folder of this script (to_rdf)
+BASE = os.path.dirname(HERE)                         # one level up: &quot;Knowledge representation&quot;
+tei_file = os.path.join(BASE, &quot;tei&quot;, &quot;encoding.xml&quot;)
+tree = ET.parse(tei_file)
+root = tree.getroot()
+
+# Create an empty RDF graph and tell it our prefixes (for nice Turtle output).
+g = Graph()
+g.bind(&quot;crm&quot;, CRM)
+g.bind(&quot;schema&quot;, SCHEMA)
+g.bind(&quot;skos&quot;, SKOS)
+g.bind(&quot;wdt&quot;, WDT)
+g.bind(&quot;wd&quot;, WD)
+
+
+# Small helper: given an entity element, find its human-readable name.
+# Different entity types keep their name in different child tags.
+def get_name(el):
+    for tag in (&quot;persName&quot;, &quot;placeName&quot;, &quot;orgName&quot;, &quot;title&quot;, &quot;label&quot;):
+        child = el.find(TEI + tag)
+        if child is not None and child.text:
+            return child.text.strip()
+    # An &lt;object&gt; keeps its name one level deeper.
+    obj_name = el.find(TEI + &quot;objectIdentifier/&quot; + TEI + &quot;objectName&quot;)
+    if obj_name is not None and obj_name.text:
+        return obj_name.text.strip()
+    # A &lt;category&gt; (concept) keeps it in &lt;catDesc&gt;; take the part before the dash.
+    cat_desc = el.find(TEI + &quot;catDesc&quot;)
+    if cat_desc is not None and cat_desc.text:
+        return cat_desc.text.split(&quot;—&quot;)[0].strip()
+    return el.get(XML_ID)   # fallback: just use the id
+
+
+# ----- 4. Read the entities -----
+# We walk through every element. An entity is any element that has both an
+# xml:id and a direct &lt;idno type=&quot;Wikidata&quot;&gt; child. There are exactly 11.
+# We remember each entity&#x27;s Wikidata URI so we can use it as its RDF subject.
+id_to_uri = {}
+for el in root.iter():
+    xml_id = el.get(XML_ID)
+    idno = el.find(TEI + &quot;idno[@type=&#x27;Wikidata&#x27;]&quot;)
+    if xml_id is None or idno is None or not idno.text:
+        continue
+
+    uri = URIRef(idno.text.strip())     # e.g. http://www.wikidata.org/entity/Q5152
+    id_to_uri[xml_id] = uri
+
+    # Statement 1: the entity is an instance of its class.
+    g.add((uri, RDF.type, TYPES[xml_id]))
+    # Statement 2: the entity has a name (a string literal).
+    g.add((uri, SCHEMA.name, Literal(get_name(el))))
+
+# ----- 5. Read the relations from &lt;listRelation&gt; -----
+# Each &lt;relation&gt; connects two entities; we turn it into one RDF triple.
+for rel in root.iter(TEI + &quot;relation&quot;):
+    name = rel.get(&quot;name&quot;)
+    active = rel.get(&quot;active&quot;).lstrip(&quot;#&quot;)    # &quot;#turkey&quot; -&gt; &quot;turkey&quot;
+    passive = rel.get(&quot;passive&quot;).lstrip(&quot;#&quot;)
+    g.add((id_to_uri[active], RELATIONS[name], id_to_uri[passive]))
+
+# ----- 6. Write the RDF to a Turtle file -----
+out_file = os.path.join(BASE, &quot;turtle&quot;, &quot;ataturk_tei.ttl&quot;)
+g.serialize(destination=out_file, format=&quot;turtle&quot;)
+print(&quot;Done. Wrote&quot;, len(g), &quot;triples to&quot;, out_file)
+</code></pre>
+</details>
+
+    <h2>4. CSV → RDF (Python)</h2>
+    <p>
+      The CSV tables hold the extra data that is not written in the text — the
+      architects, the parliament, the central bank, the language, the emblem, and
+      dates and dimensions. This script reads every CSV row in
+      <em>subject – predicate – object</em> form and turns it into RDF, using the
+      same classes and properties as the conceptual model. Literals are typed with
+      <code>xsd:</code> (dates and numbers).
+    </p>
+    <ul class="files">
+      <li><a href="files/ataturk_csv.ttl" target="_blank">ataturk_csv.ttl</a><span class="what">its RDF output</span></li>
+    </ul>
+    <details class="code">
+  <summary>Show code<a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/to_rdf/csv_to_rdf.py" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>csv_to_rdf.py</a></summary>
+  <pre><code class="language-python"># ============================================================
+# CSV -&gt; RDF transformation
+#
+# This script reads every CSV file in the ../csv folder and turns
+# the &quot;subject, predicate, object&quot; rows into RDF triples, using the
+# same classes and properties as our conceptual model.
+#
+# The CSV files hold the EXTRA data (architects, parliament, central
+# bank, language, emblem, dates, dimensions...) that is not written
+# in the Wikipedia text, so it is not in the TEI file.
+#
+# Run it from the &quot;Knowledge representation&quot; folder:
+#     python3 csv_to_rdf.py
+# ============================================================
+
+import os
+import csv                                  # built-in library to read CSV
+from rdflib import Graph, Namespace, Literal, URIRef
+from rdflib.namespace import RDF, XSD       # rdf:type and the xsd: datatypes
+
+# ----- 1. Namespaces (same prefixes as the conceptual model) -----
+CRM    = Namespace(&quot;http://www.cidoc-crm.org/cidoc-crm/&quot;)
+SCHEMA = Namespace(&quot;https://schema.org/&quot;)
+SKOS   = Namespace(&quot;http://www.w3.org/2004/02/skos/core#&quot;)
+DCT    = Namespace(&quot;http://purl.org/dc/terms/&quot;)
+WDT    = Namespace(&quot;http://www.wikidata.org/prop/direct/&quot;)
+WD     = Namespace(&quot;http://www.wikidata.org/entity/&quot;)
+
+# ----- 2. Every entity id used in the CSV files -&gt; its Wikidata URI -----
+# The first 11 are the same entities as in the TEI file (so the two RDF
+# datasets join on the same URIs). The last 6 are the extra entities.
+WIKIDATA = {
+    &quot;ataturk&quot;: &quot;Q5152&quot;,   &quot;turkey&quot;: &quot;Q43&quot;,        &quot;chp&quot;: &quot;Q19079&quot;,
+    &quot;anitkabir&quot;: &quot;Q615404&quot;, &quot;tl_banknote&quot;: &quot;Q172872&quot;, &quot;nutuk&quot;: &quot;Q2005693&quot;,
+    &quot;incredible_turk&quot;: &quot;Q31190822&quot;, &quot;republic_day&quot;: &quot;Q803181&quot;,
+    &quot;ankara&quot;: &quot;Q3640&quot;, &quot;kemalism&quot;: &quot;Q269443&quot;, &quot;law_5816&quot;: &quot;Q1519065&quot;,
+    # extra entities (only in the CSV files)
+    &quot;onat&quot;: &quot;Q5372464&quot;, &quot;arda&quot;: &quot;Q6065347&quot;, &quot;tbmm&quot;: &quot;Q274918&quot;,
+    &quot;tcmb&quot;: &quot;Q580829&quot;, &quot;turkish_language&quot;: &quot;Q256&quot;, &quot;six_arrows&quot;: &quot;Q6030041&quot;,
+}
+
+# ----- 3. The conceptual model mapping -----
+# &quot;has type&quot; value (in the CSV) -&gt; the class of that entity.
+TYPE_CLASS = {
+    &quot;mausoleum&quot;: SCHEMA.Mausoleum, &quot;city&quot;: SCHEMA.City,
+    &quot;political party&quot;: SCHEMA.PoliticalParty, &quot;emblem&quot;: CRM.E36_Visual_Item,
+    &quot;language&quot;: CRM.E56_Language, &quot;person&quot;: CRM.E21_Person,
+    &quot;assembly&quot;: CRM.E74_Group, &quot;organization&quot;: CRM.E74_Group,
+    &quot;movie&quot;: SCHEMA.Movie, &quot;concept&quot;: SKOS.Concept,
+    &quot;legislation&quot;: SCHEMA.Legislation, &quot;book&quot;: SCHEMA.Book,
+    &quot;event&quot;: SCHEMA.Event, &quot;object&quot;: CRM.E84_Information_Carrier,
+    &quot;country&quot;: SCHEMA.Country,
+}
+
+# Every CSV predicate -&gt; the property it becomes in RDF.
+PROP = {
+    &quot;has title&quot;: SCHEMA.name,
+    &quot;has construction date&quot;: SCHEMA.dateCreated,
+    &quot;has foundation date&quot;: SCHEMA.foundingDate,
+    &quot;has publication date&quot;: SCHEMA.datePublished,
+    &quot;has release date&quot;: SCHEMA.datePublished,
+    &quot;has date&quot;: DCT.date,
+    &quot;has area&quot;: CRM.P43_has_dimension,
+    &quot;has genre&quot;: SCHEMA.genre,
+    &quot;is dedicated to&quot;: CRM.P67_refers_to,
+    &quot;is located in&quot;: SCHEMA.location,
+    &quot;has architect&quot;: SCHEMA.architect,
+    &quot;hosts&quot;: CRM.P7i_witnessed,
+    &quot;is residence of&quot;: CRM.P74i_is_current_or_former_residence_of,
+    &quot;is founded by&quot;: SCHEMA.founder,
+    &quot;is based in&quot;: SCHEMA.location,
+    &quot;follows&quot;: SCHEMA.about,
+    &quot;has flag&quot;: CRM.P138i_has_representation,
+    &quot;is about&quot;: SCHEMA.about,
+    &quot;is enacted by&quot;: SCHEMA.creator,
+    &quot;protects&quot;: SCHEMA.about,
+    &quot;has author&quot;: SCHEMA.author,
+    &quot;has language&quot;: DCT.language,
+    &quot;is published in&quot;: SCHEMA.locationCreated,
+    &quot;is delivered to&quot;: SCHEMA.about,
+    &quot;depicts&quot;: CRM.P138_represents,
+    &quot;is issued by&quot;: CRM.P108i_was_produced_by,
+    &quot;commemorates&quot;: SCHEMA.about,
+    &quot;is celebrated in&quot;: SCHEMA.location,
+    &quot;had participant&quot;: CRM.P11_had_participant,
+    &quot;has capital&quot;: WDT.P36,
+    &quot;has currency&quot;: CRM.P108_has_produced,
+    &quot;relates to&quot;: SCHEMA.about,
+    &quot;has official language&quot;: DCT.language,
+    &quot;is agency of&quot;: SCHEMA.parentOrganization,
+    &quot;is defined by&quot;: CRM.P138i_has_representation,
+    &quot;is based on&quot;: CRM.P67_refers_to,
+}
+
+# Predicates whose object is a literal value (text or number), not an entity.
+DATE_PREDS    = {&quot;has construction date&quot;, &quot;has foundation date&quot;,
+                 &quot;has publication date&quot;, &quot;has release date&quot;, &quot;has date&quot;}
+DECIMAL_PREDS = {&quot;has area&quot;}
+STRING_PREDS  = {&quot;has title&quot;, &quot;has genre&quot;}
+
+
+# Helper: turn an entity id (&quot;ankara&quot;) into its Wikidata URI.
+def uri(entity_id):
+    return URIRef(WD + WIKIDATA[entity_id])
+
+
+# ----- 4. Prepare the graph -----
+g = Graph()
+g.bind(&quot;crm&quot;, CRM)
+g.bind(&quot;schema&quot;, SCHEMA)
+g.bind(&quot;skos&quot;, SKOS)
+g.bind(&quot;dct&quot;, DCT)
+g.bind(&quot;wdt&quot;, WDT)
+g.bind(&quot;wd&quot;, WD)
+
+# ----- 5. Read every CSV file in the ../csv folder -----
+HERE = os.path.dirname(os.path.abspath(__file__))   # folder of this script (to_rdf)
+BASE = os.path.dirname(HERE)                         # one level up: &quot;Knowledge representation&quot;
+csv_dir = os.path.join(BASE, &quot;csv&quot;)
+
+for filename in sorted(os.listdir(csv_dir)):
+    if not filename.endswith(&quot;.csv&quot;):
+        continue
+    with open(os.path.join(csv_dir, filename), encoding=&quot;utf-8&quot;) as f:
+        reader = csv.reader(f)
+        next(reader)                        # skip the header row
+        for row in reader:
+            # Skip empty lines and comment lines (they start with &quot;#&quot;).
+            if not row or row[0].strip().startswith(&quot;#&quot;):
+                continue
+            subject, predicate, obj = (cell.strip() for cell in row)
+
+            # Case A: &quot;has type&quot; -&gt; rdf:type with the class of the entity.
+            if predicate == &quot;has type&quot;:
+                g.add((uri(subject), RDF.type, TYPE_CLASS[obj]))
+
+            # Case B: the object is a date literal.
+            # A full date (YYYY-MM-DD) is xsd:date; a year on its own is xsd:gYear.
+            elif predicate in DATE_PREDS:
+                date_type = XSD.date if obj.count(&quot;-&quot;) == 2 else XSD.gYear
+                g.add((uri(subject), PROP[predicate], Literal(obj, datatype=date_type)))
+
+            # Case C: the object is a number (we keep only the number, not the unit).
+            elif predicate in DECIMAL_PREDS:
+                number = obj.split()[0]
+                g.add((uri(subject), PROP[predicate], Literal(number, datatype=XSD.decimal)))
+
+            # Case D: the object is a plain text literal.
+            elif predicate in STRING_PREDS:
+                g.add((uri(subject), PROP[predicate], Literal(obj)))
+
+            # Case E: the object is another entity -&gt; use its URI.
+            else:
+                g.add((uri(subject), PROP[predicate], uri(obj)))
+
+# ----- 6. Write the RDF to a Turtle file -----
+out_file = os.path.join(BASE, &quot;turtle&quot;, &quot;ataturk_csv.ttl&quot;)
+g.serialize(destination=out_file, format=&quot;turtle&quot;)
+print(&quot;Done. Wrote&quot;, len(g), &quot;triples to&quot;, out_file)
+</code></pre>
+</details>
+
+    <h2>5. Merge → one graph</h2>
+    <p>
+      The last script loads both RDF files into a single graph and saves the final
+      dataset. Because the two parts share the same Wikidata URIs, the triples about
+      the same entity come together, and any identical triple is kept only once.
+    </p>
+    <ul class="files">
+      <li><a href="files/ataturk_merged.ttl" target="_blank">ataturk_merged.ttl</a><span class="what">the final merged graph</span></li>
+    </ul>
+    <details class="code">
+  <summary>Show code<a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/to_rdf/merge.py" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>merge.py</a></summary>
+  <pre><code class="language-python"># ============================================================
+# Merge the two RDF datasets into one graph
+#
+# tei_to_rdf.py  -&gt;  ataturk_tei.ttl   (data from the Wikipedia text)
+# csv_to_rdf.py  -&gt;  ataturk_csv.ttl   (extra data from the CSV tables)
+#
+# This script loads both files into a single graph and saves the
+# final, complete dataset as ataturk.ttl. Triples that appear in
+# both files are automatically kept only once.
+#
+# Run it from the &quot;Knowledge representation&quot; folder (after the other
+# two scripts):
+#     python3 merge.py
+# ============================================================
+
+import os
+from rdflib import Graph
+
+HERE = os.path.dirname(os.path.abspath(__file__))   # folder of this script (to_rdf)
+BASE = os.path.dirname(HERE)                         # one level up: &quot;Knowledge representation&quot;
+turtle_dir = os.path.join(BASE, &quot;turtle&quot;)           # where the .ttl files live
+
+# Start with an empty graph and read both Turtle files into it.
+g = Graph()
+g.parse(os.path.join(turtle_dir, &quot;ataturk_tei.ttl&quot;), format=&quot;turtle&quot;)
+g.parse(os.path.join(turtle_dir, &quot;ataturk_csv.ttl&quot;), format=&quot;turtle&quot;)
+
+# Save the single, merged dataset.
+out_file = os.path.join(turtle_dir, &quot;ataturk_merged.ttl&quot;)
+g.serialize(destination=out_file, format=&quot;turtle&quot;)
+print(&quot;Done. Merged graph has&quot;, len(g), &quot;triples -&gt;&quot;, out_file)
+</code></pre>
+</details>
+
+    <h2>6. The final graph</h2>
+    <p>
+      The final dataset is serialised in Turtle. It is one connected graph: every
+      cultural object points back to Atatürk (<code>wd:Q5152</code>) through the
+      relations defined in the ontology. The diagram below shows the whole graph;
+      the Turtle preview under it shows the same graph as data. The full file can be
+      downloaded above.
+    </p>
+    <figure>
+      <img src="assets/rdf-graph.png" class="zoomable" alt="Full RDF graph of the dataset: every resource, literal and relation">
+      <figcaption>The complete RDF graph. Ellipses are resources (entities and their classes), boxes are literal values (names, dates, numbers), and every arrow is a property.</figcaption>
+    </figure>
+    <p>
+      The picture was produced with
+      <a href="https://www.ldf.fi/service/rdf-grapher" target="_blank" rel="noopener">RDF Grapher</a>,
+      an online tool that reads an RDF file and draws it as a graph. The merged
+      Turtle file (<code>ataturk_merged.ttl</code>) was given to it as input; the
+      namespace legend at the bottom of the image is added by the tool.
+    </p>
+    <ul class="files">
+      <li><a href="assets/rdf-graph.png" target="_blank">rdf-graph.png</a><span class="what">the graph image from RDF Grapher</span></li>
+    </ul>
+    <pre><code class="language-turtle">@prefix crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .
+@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+@prefix schema: &lt;https://schema.org/&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+@prefix wd: &lt;http://www.wikidata.org/entity/&gt; .
+@prefix wdt: &lt;http://www.wikidata.org/prop/direct/&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+wd:Q5152 a crm:E21_Person ;
+    schema:name "Mustafa Kemal Atatürk" .
+
+wd:Q43 a schema:Country ;
+    dct:language wd:Q256 ;
+    crm:P108_has_produced wd:Q172872 ;
+    wdt:P36 wd:Q3640 ;
+    schema:about wd:Q269443 ;
+    schema:founder wd:Q5152 ;
+    schema:foundingDate "1923-10-29"^^xsd:date ;
+    schema:name "Republic of Turkey" .
+
+wd:Q615404 a schema:Mausoleum ;
+    crm:P43_has_dimension 720000.0 ;
+    crm:P67_refers_to wd:Q5152 ;
+    crm:P7i_witnessed wd:Q803181 ;
+    schema:architect wd:Q5372464,
+        wd:Q6065347 ;
+    schema:dateCreated "1953"^^xsd:gYear ;
+    schema:location wd:Q3640 ;
+    schema:name "Anıtkabir" .
+
+wd:Q2005693 a schema:Book ;
+    dct:language wd:Q256 ;
+    schema:about wd:Q19079,
+        wd:Q269443,
+        wd:Q43 ;
+    schema:author wd:Q5152 ;
+    schema:datePublished "1927"^^xsd:gYear ;
+    schema:locationCreated wd:Q3640 ;
+    schema:name "Nutuk" .
+
+wd:Q269443 a skos:Concept ;
+    crm:P138i_has_representation wd:Q6030041 ;
+    crm:P67_refers_to wd:Q5152 ;
+    schema:name "Kemalism" .
+
+wd:Q803181 a schema:Event ;
+    dct:date "1923-10-29"^^xsd:date ;
+    crm:P11_had_participant wd:Q5152 ;
+    schema:about wd:Q43 ;
+    schema:location wd:Q3640 ;
+    schema:name "Republic Day" .
+
+<span class="what">… full dataset in ataturk_merged.ttl</span></code></pre>
   </main>
 
   <footer>
     <p>
       This website was created by Kübra Topçuoğlu for the course
-      <em>Information Science and Cultural Heritage</em>, A.Y. 2024/2025,
+      <em>Information Science and Cultural Heritage</em>, A.Y. 2025/2026,
       within the master's course in Digital Humanities and Digital Knowledge
       at the Alma Mater Studiorum — University of Bologna.
     </p>
@@ -45,5 +879,26 @@
       </a>
     </p>
   </footer>
+
+  <!-- Syntax highlighting for the code blocks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    // Small Turtle/RDF language (highlight.js has no built-in one).
+    hljs.registerLanguage("turtle", function () {
+      return {
+        name: "Turtle",
+        contains: [
+          hljs.HASH_COMMENT_MODE,                              // # comments
+          { className: "string", begin: '"', end: '"' },       // literals
+          { className: "symbol", begin: "<", end: ">" },       // full IRIs
+          { className: "keyword", begin: /@(prefix|base)\b/ }, // @prefix / @base
+          { className: "keyword", begin: /\ba\b/ },            // 'a' = rdf:type
+          { className: "type", begin: /[A-Za-z][\w-]*:[\w-]*/ } // prefixed names
+        ]
+      };
+    });
+    hljs.highlightAll();
+  </script>
+  <script src="js/zoom.js"></script>
 </body>
 </html>

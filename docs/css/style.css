@@ -84,7 +84,7 @@ h2 {
 
 h2:first-of-type { margin-top: 0; }
 
-p { max-width: 70ch; }
+p { max-width: none; }
 
 a { color: var(--accent); }
 
@@ -134,6 +134,138 @@ code {
   font-family: "Courier New", monospace;
   font-size: 0.85rem;
   color: var(--accent);
+}
+
+/* Code blocks (serialized graph / snippets) — dark, syntax-highlighted */
+pre {
+  background: #0d1117;
+  border: 1px solid #0d1117;
+  border-radius: 4px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  max-height: 420px;
+}
+
+pre code {
+  font-family: "Courier New", monospace;
+  color: #c9d1d9;
+}
+
+/* let the highlight.js theme paint the text colors, not the box */
+pre code.hljs {
+  background: transparent;
+  padding: 0;
+}
+
+/* Download / view-file links */
+.files {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.files li { margin: 6px 0; }
+
+.files a {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--card);
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.files a:hover { background: var(--accent-soft); }
+
+.files .what {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-left: 8px;
+}
+
+/* Numbered pipeline steps */
+.pipeline {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.pipeline li { margin: 6px 0; }
+
+/* Collapsible code blocks */
+details.code {
+  margin: 12px 0 24px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--card);
+}
+
+details.code summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+details.code summary:hover { color: var(--ink); }
+
+/* GitHub link to the source file, shown inside the summary bar */
+.gh-file {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.gh-file:hover { color: var(--accent); text-decoration: underline; }
+
+details.code pre {
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Zoomable images — click to enlarge in place, click again to shrink */
+.zoom-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;          /* avoid extra space under the image */
+}
+
+img.zoomable {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+img.zoomable.zoomed {
+  transform: scale(1.7);
+  cursor: zoom-out;
+  position: relative;
+  z-index: 5;              /* sit above surrounding content while enlarged */
+}
+
+/* Small magnifying-glass icon so people see the image can be zoomed. */
+.zoom-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  pointer-events: none;    /* never blocks the mouse */
 }
 
 footer {

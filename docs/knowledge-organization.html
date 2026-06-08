@@ -30,31 +30,51 @@
 
     <h2>Theoretical model</h2>
     <p>
-      The theoretical model is a mind map. Atatürk sits in the centre and the items
-      branch out from him. The arrows are the relations between items — for example
-      a mausoleum that is <em>dedicated to</em> him, or a book he <em>wrote</em>.
-      This model is about <strong>real items and their connections</strong>.
+      The theoretical model was built starting from the text the project is based
+      on. From this text the central subject and ten related items were identified,
+      and the relations connecting them to Atatürk were annotated explicitly in the
+      TEI encoding through a <code>&lt;listRelation&gt;</code> element. 
+      Further information describing each item was then recorded in its own CSV table as
+      <strong>natural-language triple statements</strong> in a simple
+      <em>subject – predicate – object</em> form — for example
+      <code>anitkabir – has construction date – 1953</code>. <br>
+      Read together, the items and their relations form a mind map: Atatürk sits in the centre 
+      and the items branch out from him through labelled relations, such as a mausoleum that
+      is <em>dedicated to</em> him or a book he <em>wrote</em>.
     </p>
     <figure>
-      <img src="assets/theoretical-model.webp" alt="Theoretical model: radial mind map of items and relations">
+      <img src="assets/theoretical-model.webp" class="zoomable" alt="Theoretical model: radial mind map of items and relations">
       <figcaption>Theoretical model — items (individuals) and the relations between them.</figcaption>
     </figure>
 
     <h2>Conceptual model</h2>
     <p>
-      The conceptual model is the ontology. Here the individual items disappear and
-      only their <strong>classes and properties</strong> remain. Each class appears
-      once, and arrows go from class to class. The model reuses existing
-      ontologies instead of inventing new terms:
+      Starting from the predicates and entities described in natural language in the
+      theoretical model, each triple statement was mapped into <strong>RDF
+      syntax</strong>. Here the individual items disappear and only their
+      <strong>classes and properties</strong> remain: each class appears once, and
+      arrows go from class to class. <br> Rather than inventing new terms, the model
+      reuses existing, widely adopted vocabularies:
     </p>
     <ul>
-      <li><strong>CIDOC-CRM</strong> (<code>crm:</code>) — for cultural heritage objects, sites and people.</li>
-      <li><strong>Schema.org</strong> (<code>schema:</code>) — for general types such as Book, Movie, City, Event.</li>
-      <li><strong>SKOS</strong> (<code>skos:</code>) — for the concept (Kemalism).</li>
+      <li><strong>Schema.org</strong> (<code>schema:</code>) — the privileged source for general types such as Book, Movie, City, Event and Country.</li>
+      <li><strong>CIDOC-CRM</strong> (<code>crm:</code>) — for cultural-heritage-specific classes and properties: sites, people, physical dimensions and reference relations.</li>
+      <li><strong>SKOS</strong> (<code>skos:</code>) — for the abstract concept (Kemalism).</li>
       <li><strong>Dublin Core Terms</strong> (<code>dct:</code>) — for dates and language.</li>
     </ul>
+    <p>
+      Literals were made explicit by declaring their datatype with the XML Schema
+      Definition (<code>xsd:</code>) language, and every item is linked to its
+      <strong>Wikidata authority record</strong> so that the local data reconciles
+      with an external, shared identifier. Where no suitable published class
+      existed — for the bridge entities that hold the network together, such as the
+      <em>Six Arrows</em> emblem, the Turkish language, the national assembly and
+      the central bank — the closest CIDOC-CRM class was chosen (<code>crm:E36
+      Visual&nbsp;Item</code>, <code>crm:E56 Language</code>, <code>crm:E74
+      Group</code>).
+    </p>
     <figure>
-      <img src="assets/conceptual-model.webp" alt="Conceptual model: ontology of classes and properties">
+      <img src="assets/conceptual-model.webp" class="zoomable" alt="Conceptual model: ontology of classes and properties">
       <figcaption>Conceptual model — classes and properties only, no individuals.</figcaption>
     </figure>
 
@@ -72,7 +92,7 @@
   <footer>
     <p>
       This website was created by Kübra Topçuoğlu for the course
-      <em>Information Science and Cultural Heritage</em>, A.Y. 2024/2025,
+      <em>Information Science and Cultural Heritage</em>, A.Y. 2025/2026,
       within the master's course in Digital Humanities and Digital Knowledge
       at the Alma Mater Studiorum — University of Bologna.
     </p>
@@ -85,5 +105,7 @@
       </a>
     </p>
   </footer>
+
+  <script src="js/zoom.js"></script>
 </body>
 </html>
