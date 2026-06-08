@@ -1,0 +1,21 @@
+subject,predicate,object
+nutuk,has type,book
+nutuk,has title,Nutuk
+nutuk,has publication date,1927
+nutuk,has language,turkish_language
+nutuk,has author,ataturk
+nutuk,is about,kemalism
+nutuk,is about,turkey
+nutuk,is published in,ankara
+nutuk,is delivered to,chp
+#
+# === Conceptual model — nutuk = schema:Book (+ crm:E33_Linguistic_Object) ===
+# has type             -> rdf:type                (sınıf: schema:Book)
+# has title            -> schema:name             schema:Book -> Literal
+# has publication date -> schema:datePublished    schema:Book -> xsd:date
+# has language         -> dct:language            schema:Book -> crm:E56_Language
+# has author           -> schema:author           schema:Book -> crm:E21_Person
+# is about (kemalism)  -> schema:about            schema:Book -> skos:Concept
+# is about (turkey)    -> schema:about            schema:Book -> schema:Country
+# is published in      -> schema:locationCreated  schema:Book -> schema:City
+# is delivered to      -> schema:about (zayıf)    schema:Book -> schema:PoliticalParty

@@ -1,0 +1,19 @@
+subject,predicate,object
+turkey,has type,country
+turkey,has title,Republic of Turkey
+turkey,has foundation date,1923-10-29
+turkey,is founded by,ataturk
+turkey,has capital,ankara
+turkey,has currency,tl_banknote
+turkey,relates to,kemalism
+turkey,has official language,turkish_language
+#
+# === Conceptual model — turkey = schema:Country (+ crm:E74_Group, foaf:Organization) ===
+# has type              -> rdf:type                (sınıf: schema:Country)
+# has title             -> schema:name             schema:Country -> Literal
+# has foundation date   -> schema:foundingDate     schema:Country -> xsd:date
+# is founded by         -> schema:founder          schema:Country -> crm:E21_Person
+# has capital           -> wdt:P36 (schema:capital YOK) schema:Country -> schema:City
+# has currency          -> crm:P108_has_produced   schema:Country -> crm:E84_Information_Carrier
+# relates to            -> schema:about            schema:Country -> skos:Concept
+# has official language -> dct:language            schema:Country -> crm:E56_Language

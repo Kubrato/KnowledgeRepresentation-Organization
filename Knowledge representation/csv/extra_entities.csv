@@ -1,0 +1,24 @@
+subject,predicate,object
+six_arrows,has type,emblem
+six_arrows,has title,The Six Arrows
+turkish_language,has type,language
+turkish_language,has title,Turkish
+onat,has type,person
+onat,has title,Emin Onat
+arda,has type,person
+arda,has title,Orhan Arda
+tbmm,has type,assembly
+tbmm,has title,Grand National Assembly of Turkey
+tbmm,is agency of,turkey
+tcmb,has type,organization
+tcmb,has title,Central Bank of the Republic of Turkey
+tcmb,is agency of,turkey
+#
+# === Conceptual model — extra (ortak/köprü) entity'ler ===
+# six_arrows       has type emblem        -> sınıf: crm:E36_Visual_Item
+# turkish_language has type language      -> sınıf: crm:E56_Language
+# onat / arda      has type person        -> sınıf: crm:E21_Person (+ foaf:Person)
+# tbmm             has type assembly      -> sınıf: crm:E74_Group (+ foaf:Organization)
+# tcmb             has type organization  -> sınıf: crm:E74_Group (+ foaf:Organization)
+# has title        -> schema:name          (her biri) -> Literal
+# is agency of     -> schema:parentOrganization   crm:E74_Group -> schema:Country

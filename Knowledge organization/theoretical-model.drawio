@@ -1,0 +1,533 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Teorik Model" id="v343">
+    <mxGraphModel dx="3856" dy="2652" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3400" pageHeight="2400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="turkey" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Republic of&lt;br&gt;Türkiye" vertex="1">
+          <mxGeometry height="146" width="227" x="870" y="659" as="geometry" />
+        </mxCell>
+        <mxCell id="chp" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="CHP" vertex="1">
+          <mxGeometry height="134" width="239" x="2271" y="407" as="geometry" />
+        </mxCell>
+        <mxCell id="anitkabir" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Anıtkabir" vertex="1">
+          <mxGeometry height="120" width="201" x="2602" y="737" as="geometry" />
+        </mxCell>
+        <mxCell id="tl_banknote" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Turkish lira&lt;br&gt;banknote" vertex="1">
+          <mxGeometry height="122" width="227" x="1140" y="372" as="geometry" />
+        </mxCell>
+        <mxCell id="nutuk" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Nutuk" vertex="1">
+          <mxGeometry height="137" width="207" x="880" y="1192" as="geometry" />
+        </mxCell>
+        <mxCell id="lf9x9Evb6klZdZCnADFD-1" edge="1" parent="1" source="incredible_turk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;strokeWidth=6;fontStyle=1" target="turkey">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2692" y="1332" />
+              <mxPoint x="2692" y="2087" />
+              <mxPoint x="80" y="2087" />
+              <mxPoint x="80" y="804" />
+              <mxPoint x="499" y="804" />
+              <mxPoint x="499" y="732" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lf9x9Evb6klZdZCnADFD-2" connectable="0" parent="lf9x9Evb6klZdZCnADFD-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontStyle=1" value="&lt;span style=&quot;font-size: 23px;&quot;&gt;is about&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.35" as="geometry">
+            <mxPoint x="2" y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="incredible_turk" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="The Incredible&lt;br&gt;Turk" vertex="1">
+          <mxGeometry height="129" width="233" x="2595" y="1203" as="geometry" />
+        </mxCell>
+        <mxCell id="ankara" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Ankara" vertex="1">
+          <mxGeometry height="117" width="204" x="1727" y="1698" as="geometry" />
+        </mxCell>
+        <mxCell id="kemalism" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Kemalism" vertex="1">
+          <mxGeometry height="100" width="212.5" x="1679" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="law_5816" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Law No. 5816" vertex="1">
+          <mxGeometry height="120" width="193" x="1072" y="1591" as="geometry" />
+        </mxCell>
+        <mxCell id="six_arrows" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="The Six Arrows" vertex="1">
+          <mxGeometry height="70" width="160" x="2018" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="turkish_language" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="Turkish" vertex="1">
+          <mxGeometry height="70" width="160" x="407" y="906" as="geometry" />
+        </mxCell>
+        <mxCell id="tbmm" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="Grand National&lt;br&gt;Assembly" vertex="1">
+          <mxGeometry height="70" width="160" x="239" y="1259" as="geometry" />
+        </mxCell>
+        <mxCell id="onat" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="Emin Onat" vertex="1">
+          <mxGeometry height="70" width="160" x="2997" y="737" as="geometry" />
+        </mxCell>
+        <mxCell id="arda" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="Orhan Arda" vertex="1">
+          <mxGeometry height="70" width="160" x="2846" y="597" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf0" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="country" vertex="1">
+          <mxGeometry height="52" width="130" x="1042" y="947" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf1" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Republic of Türkiye" vertex="1">
+          <mxGeometry height="52" width="130" x="1176" y="872" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf2" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="1923-10-29" vertex="1">
+          <mxGeometry height="52" width="130" x="1325" y="722" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf3" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="political party" vertex="1">
+          <mxGeometry height="63" width="153" x="2630" y="372" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf4" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Republican People&#39;s Party" vertex="1">
+          <mxGeometry height="89" width="155" x="2176" y="617" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf5" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="1923" vertex="1">
+          <mxGeometry height="52" width="130" x="1979" y="624" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf6" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="mausoleum" vertex="1">
+          <mxGeometry height="52" width="130" x="2637.5" y="603" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf7" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Anıtkabir" vertex="1">
+          <mxGeometry height="52" width="130" x="2385" y="676" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf8" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="1953" vertex="1">
+          <mxGeometry height="52" width="130" x="2196" y="783" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf9" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="720000 sq metre" vertex="1">
+          <mxGeometry height="52" width="130" x="2510" y="906" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf10" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="object" vertex="1">
+          <mxGeometry height="52" width="130" x="1252" y="617" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf11" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Turkish lira banknote" vertex="1">
+          <mxGeometry height="52" width="130" x="1471" y="482" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf12" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="book" vertex="1">
+          <mxGeometry height="52" width="130" x="1046" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf13" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Nutuk" vertex="1">
+          <mxGeometry height="52" width="130" x="1218" y="1222.5" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf14" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="1927" vertex="1">
+          <mxGeometry height="52" width="130" x="967" y="1412" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf15" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="movie" vertex="1">
+          <mxGeometry height="52" width="130" x="2365" y="1057" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf16" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="The Incredible Turk" vertex="1">
+          <mxGeometry height="78" width="179" x="2235" y="1202" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf17" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="1958" vertex="1">
+          <mxGeometry height="52" width="130" x="2515" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf18" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="documentary" vertex="1">
+          <mxGeometry height="52" width="130" x="2294" y="1326" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf19" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="event" vertex="1">
+          <mxGeometry height="52" width="130" x="2558" y="1457" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf20" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Republic Day" vertex="1">
+          <mxGeometry height="52" width="130" x="2092" y="1503" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf21" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="1923-10-29" vertex="1">
+          <mxGeometry height="52" width="130" x="2298" y="1417" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf22" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="city" vertex="1">
+          <mxGeometry height="52" width="130" x="2064" y="1631" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf23" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Ankara" vertex="1">
+          <mxGeometry height="52" width="130" x="1919" y="1524" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf24" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="25.632 sq km" vertex="1">
+          <mxGeometry height="52" width="130" x="1657" y="1537" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf25" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="concept" vertex="1">
+          <mxGeometry height="52" width="130" x="1860" y="541" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf26" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Kemalism" vertex="1">
+          <mxGeometry height="52" width="130" x="1618" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf27" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="legislation" vertex="1">
+          <mxGeometry height="52" width="130" x="1135" y="1451" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf28" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Law No. 5816 on Crimes Committed Against Atatürk" vertex="1">
+          <mxGeometry height="104" width="225" x="1200" y="1786" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf29" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="1951" vertex="1">
+          <mxGeometry height="52" width="130" x="1404" y="1613" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf30" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="emblem" vertex="1">
+          <mxGeometry height="52" width="130" x="2407" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf31" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="The Six Arrows" vertex="1">
+          <mxGeometry height="52" width="130" x="2301" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf32" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="language" vertex="1">
+          <mxGeometry height="52" width="130" x="164" y="992" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf33" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Turkish" vertex="1">
+          <mxGeometry height="52" width="130" x="117" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf34" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="assembly" vertex="1">
+          <mxGeometry height="52" width="130" x="470" y="1599" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf35" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Grand National Assembly of Turkey" vertex="1">
+          <mxGeometry height="95" width="181" x="198" y="1589" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf36" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="organization" vertex="1">
+          <mxGeometry height="52" width="130" x="422" y="606" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf37" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Central Bank of the Republic of Turkey" vertex="1">
+          <mxGeometry height="89.5" width="196" x="183" y="627.5" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf38" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="person" vertex="1">
+          <mxGeometry height="52" width="130" x="3045" y="597" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf39" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Emin Onat" vertex="1">
+          <mxGeometry height="52" width="130" x="2936" y="849" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf40" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="person" vertex="1">
+          <mxGeometry height="52" width="130" x="2881" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="leaf41" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Orhan Arda" vertex="1">
+          <mxGeometry height="52" width="130" x="3072" y="413" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="republic_day" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=22;fontColor=#333333;labelBackgroundColor=none;strokeWidth=8;fontStyle=1" target="ataturk" value="is founded by">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="tl_banknote" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=22;fontColor=light-dark(#333333,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1" target="tcmb" value="is issued by">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="nutuk" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=22;fontColor=light-dark(#333333,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1" target="turkish_language" value="has language">
+          <mxGeometry relative="1" x="-0.0018" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e30" edge="1" parent="1" source="kemalism" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=22;fontColor=light-dark(#333333,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1" target="six_arrows" value="is defined by">
+          <mxGeometry relative="1" x="0.3285" y="39" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e37" edge="1" parent="1" source="turkey" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=22;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1" target="leaf1" value="has title">
+          <mxGeometry relative="1" x="0.0091" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e39" edge="1" parent="1" source="chp" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=22;fontColor=#777777;labelBackgroundColor=none;strokeWidth=8;fontStyle=1" target="leaf3" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legbox" parent="1" style="rounded=1;html=1;fillColor=none;strokeColor=#333333;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1" value="" vertex="1">
+          <mxGeometry height="420" width="364" x="40" y="37" as="geometry" />
+        </mxCell>
+        <mxCell id="legt" parent="1" style="text;html=1;fontStyle=1;fontSize=22;align=left;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;rounded=1;" value="Theoretical Model — The Immortalization of Atatürk" vertex="1">
+          <mxGeometry height="25" width="317" x="60" y="53" as="geometry" />
+        </mxCell>
+        <mxCell id="leg0" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=#10739e;fontStyle=1;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Items (10 entities)" vertex="1">
+          <mxGeometry height="68" width="283" x="84" y="139" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="Entities / types" vertex="1">
+          <mxGeometry height="63" width="288" x="84" y="216" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;fontStyle=1;gradientColor=light-dark(#000000,#D9D957);gradientDirection=north;" value="Literals (values)" vertex="1">
+          <mxGeometry height="71" width="298" x="80" y="291" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;html=1;fillColor=light-dark(#2D3E50,#CCCCCC);strokeColor=#1A252F;fontColor=#FFFFFF;fontStyle=1;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=default;" value="Subject (center)" vertex="1">
+          <mxGeometry height="67" width="297" x="80" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="ataturk" parent="1" style="rounded=1;html=1;fillColor=#647687;strokeColor=#314354;fontColor=#ffffff;fontStyle=1;fontSize=32;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=default;" value="Mustafa Kemal&lt;br&gt;Atatürk" vertex="1">
+          <mxGeometry height="163" width="265" x="1688" y="937" as="geometry" />
+        </mxCell>
+        <mxCell id="republic_day" parent="1" style="rounded=1;html=1;fillColor=#b1ddf0;strokeColor=light-dark(#10739e, #024a69);fontStyle=1;fontSize=29;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#009999);gradientDirection=radial;" value="Republic Day" vertex="1">
+          <mxGeometry height="111" width="199" x="2376" y="1657" as="geometry" />
+        </mxCell>
+        <mxCell id="tcmb" parent="1" style="rounded=1;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=22;labelBackgroundColor=none;whiteSpace=wrap;strokeWidth=8;gradientColor=light-dark(#000000,#CC99FF);fontStyle=1" value="Central Bank of&lt;br&gt;the Rep. of Turkey" vertex="1">
+          <mxGeometry height="99" width="197" x="809" y="223" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" edge="1" parent="1" source="turkey" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=0;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="is founded by">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="turkey" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="ankara" value="has capital">
+          <mxGeometry relative="1" x="0.133" y="-11" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="497" y="1798" />
+              <mxPoint x="1712" y="2152" />
+            </Array>
+            <mxPoint x="1800" y="1938" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="turkey" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="tl_banknote" value="has currency">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="turkey" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="kemalism" value="relates to">
+          <mxGeometry relative="1" x="0.2796" y="-72" as="geometry">
+            <mxPoint x="1" y="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="1065" y="147" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="turkey" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="turkish_language" value="has official language">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="chp" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" target="ankara" value="is based in">
+          <mxGeometry relative="1" x="-0.1179" y="-101" as="geometry">
+            <mxPoint y="-1" as="offset" />
+            <Array as="points">
+              <mxPoint x="3292" y="62" />
+              <mxPoint x="3392" y="1158" />
+              <mxPoint x="2580" y="2050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="chp" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="kemalism" value="follows">
+          <mxGeometry relative="1" x="0.0189" y="18" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="chp" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="six_arrows" value="has flag">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="anitkabir" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="is dedicated to">
+          <mxGeometry relative="1" x="-0.0555" y="39" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="anitkabir" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ankara" value="is located in">
+          <mxGeometry relative="1" x="-0.4181" y="-202" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="3244" y="2120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="anitkabir" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="onat" value="has architect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="anitkabir" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="arda" value="has architect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="anitkabir" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="republic_day" value="hosts">
+          <mxGeometry relative="1" x="-0.5164" y="-187" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="3667" y="1261" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="tl_banknote" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontStyle=1;labelBorderColor=none;textShadow=0;" target="ataturk" value="depicts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="nutuk" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="has author">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="tcmb" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="kemalism" value="is about">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1182" y="190" />
+              <mxPoint x="1629" y="197" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="nutuk" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="turkey" value="is about">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="nutuk" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ankara" value="is published in">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="nutuk" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="chp" value="is delivered to">
+          <mxGeometry relative="1" x="0.3767" y="-167" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="-108" y="-440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="incredible_turk" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="is about">
+          <mxGeometry relative="1" x="0.0638" y="-13" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" value="commemorates">
+          <mxGeometry relative="1" x="-0.2971" y="-354" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="379" y="2366" />
+            </Array>
+            <mxPoint x="2390" y="1740.4508410329304" as="sourcePoint" />
+            <mxPoint x="969.9187538179594" y="802" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="republic_day" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ankara" value="is celebrated in">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="republic_day" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="had participant">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e28" edge="1" parent="1" source="ankara" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="is residence of">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e29" edge="1" parent="1" source="kemalism" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="is based on">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e31" edge="1" parent="1" source="law_5816" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="ataturk" value="is about">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e32" edge="1" parent="1" source="law_5816" style="endArrow=block;html=1;rounded=0;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;curved=1;" target="tbmm" value="is enacted by">
+          <mxGeometry relative="1" x="-0.6575" y="-46" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="783" y="1638" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e33" edge="1" parent="1" source="law_5816" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;curved=1;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;entryX=0.381;entryY=0.983;entryDx=0;entryDy=0;entryPerimeter=0;" target="anitkabir" value="protects">
+          <mxGeometry relative="1" x="0.182" y="-35" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="2379" y="2215" />
+              <mxPoint x="3429" y="1347" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e34" edge="1" parent="1" source="tbmm" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="turkey" value="is agency of">
+          <mxGeometry relative="1" x="-0.1873" y="39" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e35" edge="1" parent="1" source="tcmb" style="endArrow=block;html=1;rounded=1;strokeColor=#444444;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="turkey" value="is agency of">
+          <mxGeometry relative="1" x="0.0065" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e36" edge="1" parent="1" source="turkey" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf0" value="has type">
+          <mxGeometry relative="1" x="0.0028" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e38" edge="1" parent="1" source="turkey" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf2" value="has foundation date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e40" edge="1" parent="1" source="chp" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf4" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e41" edge="1" parent="1" source="chp" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf5" value="has foundation date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e42" edge="1" parent="1" source="anitkabir" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf6" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e43" edge="1" parent="1" source="anitkabir" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf7" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e44" edge="1" parent="1" source="anitkabir" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf8" value="has construction date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e45" edge="1" parent="1" source="anitkabir" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf9" value="has area">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e46" edge="1" parent="1" source="tl_banknote" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf10" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e47" edge="1" parent="1" source="tl_banknote" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf11" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e48" edge="1" parent="1" source="nutuk" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf12" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e49" edge="1" parent="1" source="nutuk" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf13" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e50" edge="1" parent="1" source="nutuk" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf14" value="has publication date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e51" edge="1" parent="1" source="incredible_turk" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf15" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e52" edge="1" parent="1" source="incredible_turk" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf16" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e53" edge="1" parent="1" source="incredible_turk" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf17" value="has release date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e54" edge="1" parent="1" source="incredible_turk" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf18" value="has genre">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e55" edge="1" parent="1" source="republic_day" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf19" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e56" edge="1" parent="1" source="republic_day" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf20" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e57" edge="1" parent="1" source="republic_day" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf21" value="has date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e58" edge="1" parent="1" source="ankara" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf22" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e59" edge="1" parent="1" source="ankara" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf23" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e60" edge="1" parent="1" source="ankara" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf24" value="has area">
+          <mxGeometry relative="1" x="0.1139" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e61" edge="1" parent="1" source="kemalism" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf25" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e62" edge="1" parent="1" source="kemalism" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf26" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e63" edge="1" parent="1" source="law_5816" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf27" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e64" edge="1" parent="1" source="law_5816" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf28" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e65" edge="1" parent="1" source="law_5816" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf29" value="has date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e66" edge="1" parent="1" source="six_arrows" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf30" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e67" edge="1" parent="1" source="six_arrows" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf31" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e68" edge="1" parent="1" source="turkish_language" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf32" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e69" edge="1" parent="1" source="turkish_language" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf33" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e70" edge="1" parent="1" source="tbmm" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf34" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e71" edge="1" parent="1" source="tbmm" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf35" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e72" edge="1" parent="1" source="tcmb" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf36" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e73" edge="1" parent="1" source="tcmb" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf37" value="has title">
+          <mxGeometry relative="1" x="0.2374" y="-36" as="geometry">
+            <mxPoint x="-1" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e74" edge="1" parent="1" source="onat" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf38" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e75" edge="1" parent="1" source="onat" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf39" value="has title">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e76" edge="1" parent="1" source="arda" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf40" value="has type">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e77" edge="1" parent="1" source="arda" style="endArrow=open;html=1;rounded=1;strokeColor=#999999;fontSize=23;fontColor=light-dark(#777777,#FFFFFF);labelBackgroundColor=none;strokeWidth=8;fontStyle=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;labelBorderColor=none;textShadow=0;" target="leaf41" value="has title">
+          <mxGeometry relative="1" x="0.6176" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

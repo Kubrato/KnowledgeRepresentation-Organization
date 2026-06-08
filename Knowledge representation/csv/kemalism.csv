@@ -1,0 +1,11 @@
+subject,predicate,object
+kemalism,has type,concept
+kemalism,has title,Kemalism
+kemalism,is based on,ataturk
+kemalism,is defined by,six_arrows
+#
+# === Conceptual model — kemalism = skos:Concept (+ crm:E89_Propositional_Object) ===
+# has type      -> rdf:type                      (sınıf: skos:Concept)
+# has title     -> schema:name                   skos:Concept -> Literal
+# is based on   -> crm:P67_refers_to             skos:Concept -> crm:E21_Person
+# is defined by -> crm:P138i_has_representation   skos:Concept -> crm:E36_Visual_Item

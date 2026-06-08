@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Organization</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="site-title">
+      <h1>Immortalising a Nation's Founder</h1>
+      <p>Atatürk in cultural heritage — a Linked Open Data project</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="knowledge-organization.html" class="active">Knowledge Organization</a>
+      <a href="representation.html">Representation</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Knowledge Organization</h2>
+    <p>
+      This page shows how the project moves from an idea to a structure. There are
+      two steps: the <strong>theoretical model</strong> (a mind map of items and
+      relations) and the <strong>conceptual model</strong> (an ontology of classes
+      and properties).
+    </p>
+
+    <h2>Theoretical model</h2>
+    <p>
+      The theoretical model is a mind map. Atatürk sits in the centre and the items
+      branch out from him. The arrows are the relations between items — for example
+      a mausoleum that is <em>dedicated to</em> him, or a book he <em>wrote</em>.
+      This model is about <strong>real items and their connections</strong>.
+    </p>
+    <figure>
+      <img src="assets/theoretical-model.webp" alt="Theoretical model: radial mind map of items and relations">
+      <figcaption>Theoretical model — items (individuals) and the relations between them.</figcaption>
+    </figure>
+
+    <h2>Conceptual model</h2>
+    <p>
+      The conceptual model is the ontology. Here the individual items disappear and
+      only their <strong>classes and properties</strong> remain. Each class appears
+      once, and arrows go from class to class. The model reuses existing
+      ontologies instead of inventing new terms:
+    </p>
+    <ul>
+      <li><strong>CIDOC-CRM</strong> (<code>crm:</code>) — for cultural heritage objects, sites and people.</li>
+      <li><strong>Schema.org</strong> (<code>schema:</code>) — for general types such as Book, Movie, City, Event.</li>
+      <li><strong>SKOS</strong> (<code>skos:</code>) — for the concept (Kemalism).</li>
+      <li><strong>Dublin Core Terms</strong> (<code>dct:</code>) — for dates and language.</li>
+    </ul>
+    <figure>
+      <img src="assets/conceptual-model.webp" alt="Conceptual model: ontology of classes and properties">
+      <figcaption>Conceptual model — classes and properties only, no individuals.</figcaption>
+    </figure>
+
+    <h2>From one model to the other</h2>
+    <p>
+      The two models describe the same project at different levels. The mind map
+      answers <em>"which items are connected?"</em> The ontology answers
+      <em>"what kinds of things are these, and how are they linked in general?"</em>
+      The data on the next page must match the ontology exactly — every class and
+      property in the model is used in the data, and nothing is used that is not in
+      the model.
+    </p>
+  </main>
+
+  <footer>
+    <p>
+      This website was created by Kübra Topçuoğlu for the course
+      <em>Information Science and Cultural Heritage</em>, A.Y. 2024/2025,
+      within the master's course in Digital Humanities and Digital Knowledge
+      at the Alma Mater Studiorum — University of Bologna.
+    </p>
+    <p class="copyright">
+      Copyright © Kübra Topçuoğlu
+      <a class="gh" href="https://github.com/Kubrato" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+    </p>
+  </footer>
+</body>
+</html>

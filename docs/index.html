@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immortalising a Nation's Founder — Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="site-title">
+      <h1>Immortalising a Nation's Founder</h1>
+      <p>Atatürk in cultural heritage — a Linked Open Data project</p>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="knowledge-organization.html">Knowledge Organization</a>
+      <a href="representation.html">Representation</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>The Idea</h2>
+    <p>
+      This project does not describe Mustafa Kemal Atatürk as a person. It looks
+      at how a nation's founder is kept alive after death — through the buildings,
+      books, films, money, laws and ideas that keep pointing back to him.
+    </p>
+    <p>
+      Atatürk is used here as a <strong>bridge subject</strong>. Each item in the
+      project is a real cultural object, and each one is connected to him in some
+      way. Together they show one concept: <em>how memory is built and protected
+      inside cultural heritage.</em>
+    </p>
+
+    <figure>
+      <img src="assets/mindmap.png" alt="Mind map placing Atatürk at the centre with connected cultural objects">
+      <figcaption>Mind map — the central subject and the cultural objects that refer back to him.</figcaption>
+    </figure>
+
+    <h2>Why this topic</h2>
+    <p>
+      A founder figure is a strong test case for Linked Open Data because the
+      links are not obvious. A mausoleum, a banknote and a law belong to very
+      different classes, yet they all carry the same memory. Modelling these
+      different types and relations is exactly what the project asks for.
+    </p>
+
+    <h2>The Items</h2>
+    <p>
+      The table below lists the ten items plus the central subject. For each one
+      it shows its ontology <strong>class</strong>, its <strong>entity type</strong>,
+      and its <strong>authority record</strong> (Wikidata), which links the local
+      data to an external, shared identifier.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Entity type</th>
+          <th>Ontology class</th>
+          <th>Authority (Wikidata)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mustafa Kemal Atatürk</td>
+          <td>Person</td>
+          <td><code>crm:E21_Person</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q5152">Q5152</a></td>
+        </tr>
+        <tr>
+          <td>Republic of Türkiye</td>
+          <td>Country</td>
+          <td><code>schema:Country</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q43">Q43</a></td>
+        </tr>
+        <tr>
+          <td>Republican People's Party (CHP)</td>
+          <td>Political party</td>
+          <td><code>schema:PoliticalParty</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q19079">Q19079</a></td>
+        </tr>
+        <tr>
+          <td>Anıtkabir</td>
+          <td>Mausoleum</td>
+          <td><code>schema:Mausoleum</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q615404">Q615404</a></td>
+        </tr>
+        <tr>
+          <td>Turkish lira banknote</td>
+          <td>Object</td>
+          <td><code>crm:E84_Information_Carrier</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q172872">Q172872</a></td>
+        </tr>
+        <tr>
+          <td>Nutuk</td>
+          <td>Book</td>
+          <td><code>schema:Book</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q2005693">Q2005693</a></td>
+        </tr>
+        <tr>
+          <td>The Incredible Turk</td>
+          <td>Movie</td>
+          <td><code>schema:Movie</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q31190822">Q31190822</a></td>
+        </tr>
+        <tr>
+          <td>Republic Day</td>
+          <td>Event</td>
+          <td><code>schema:Event</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q803181">Q803181</a></td>
+        </tr>
+        <tr>
+          <td>Ankara</td>
+          <td>City</td>
+          <td><code>schema:City</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q3640">Q3640</a></td>
+        </tr>
+        <tr>
+          <td>Kemalism</td>
+          <td>Concept</td>
+          <td><code>skos:Concept</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q269443">Q269443</a></td>
+        </tr>
+        <tr>
+          <td>Law No. 5816</td>
+          <td>Legislation</td>
+          <td><code>schema:Legislation</code></td>
+          <td><a href="https://www.wikidata.org/wiki/Q1519065">Q1519065</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>
+      This website was created by Kübra Topçuoğlu for the course
+      <em>Information Science and Cultural Heritage</em>, A.Y. 2024/2025,
+      within the master's course in Digital Humanities and Digital Knowledge
+      at the Alma Mater Studiorum — University of Bologna.
+    </p>
+    <p class="copyright">
+      Copyright © Kübra Topçuoğlu
+      <a class="gh" href="https://github.com/Kubrato" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true">
+          <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+    </p>
+  </footer>
+</body>
+</html>

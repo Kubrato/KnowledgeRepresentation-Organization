@@ -1,0 +1,11 @@
+subject,predicate,object
+ankara,has type,city
+ankara,has title,Ankara
+ankara,has area,25.632 square kilometre
+ankara,is residence of,ataturk
+#
+# === Conceptual model — ankara = schema:City (+ crm:E53_Place) ===
+# has type         -> rdf:type      (sınıf: schema:City)
+# has title        -> schema:name   schema:City -> Literal
+# has area         -> crm:P43_has_dimension                        schema:City -> Literal
+# is residence of  -> crm:P74i_is_current_or_former_residence_of   schema:City -> crm:E21_Person

@@ -1,0 +1,51 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+wd:Q1519065 a schema:Legislation ;
+    schema:about wd:Q5152 ;
+    schema:name "Law No. 5816 on Crimes Committed Against Atatürk" .
+
+wd:Q172872 a crm:E84_Information_Carrier ;
+    crm:P138_represents wd:Q5152 ;
+    schema:name "Turkish lira banknote" .
+
+wd:Q19079 a schema:PoliticalParty ;
+    schema:founder wd:Q5152 ;
+    schema:name "Republican People's Party (CHP)" .
+
+wd:Q2005693 a schema:Book ;
+    schema:author wd:Q5152 ;
+    schema:name "Nutuk" .
+
+wd:Q31190822 a schema:Movie ;
+    schema:about wd:Q5152 ;
+    schema:name "The Incredible Turk" .
+
+wd:Q43 a schema:Country ;
+    wdt:P36 wd:Q3640 ;
+    schema:about wd:Q269443 ;
+    schema:founder wd:Q5152 ;
+    schema:name "Republic of Turkey" .
+
+wd:Q615404 a schema:Mausoleum ;
+    crm:P67_refers_to wd:Q5152 ;
+    schema:location wd:Q3640 ;
+    schema:name "Anıtkabir" .
+
+wd:Q803181 a schema:Event ;
+    schema:location wd:Q3640 ;
+    schema:name "Republic Day" .
+
+wd:Q269443 a skos:Concept ;
+    crm:P67_refers_to wd:Q5152 ;
+    schema:name "Kemalism" .
+
+wd:Q3640 a schema:City ;
+    schema:name "Ankara" .
+
+wd:Q5152 a crm:E21_Person ;
+    schema:name "Mustafa Kemal Atatürk" .
+

@@ -1,0 +1,15 @@
+subject,predicate,object
+republic_day,has type,event
+republic_day,has title,Republic Day
+republic_day,has date,1923-10-29
+republic_day,commemorates,turkey
+republic_day,is celebrated in,ankara
+republic_day,had participant,ataturk
+#
+# === Conceptual model — republic_day = schema:Event (+ crm:E5_Event) ===
+# has type         -> rdf:type                 (sınıf: schema:Event)
+# has title        -> schema:name              schema:Event -> Literal
+# has date         -> dct:date                 schema:Event -> xsd:date
+# commemorates     -> schema:about             schema:Event -> schema:Country
+# is celebrated in -> schema:location          schema:Event -> schema:City
+# had participant  -> crm:P11_had_participant  schema:Event -> crm:E21_Person

@@ -1,0 +1,468 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Conceptual Model" id="0">
+    <mxGraphModel dx="6060" dy="4420" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="6800" pageHeight="3800" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_m3_nJr4gIN2Tj2FmQ-3-7" parent="1" style="whiteSpace=wrap;html=1;labelBackgroundColor=light-dark(#FFFFFF,transparent);fontColor=default;strokeWidth=4;fontSize=37;" value="" vertex="1">
+          <mxGeometry height="611" width="1156" x="763" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="c_crm_E21_Person" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="crm:E21_Person" vertex="1">
+          <mxGeometry height="140" width="470" x="3347" y="1955" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_PoliticalParty" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:PoliticalParty" vertex="1">
+          <mxGeometry height="107" width="592" x="4173" y="1127" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_Mausoleum" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:Mausoleum" vertex="1">
+          <mxGeometry height="108" width="557" x="4482" y="1707" as="geometry" />
+        </mxCell>
+        <mxCell id="c_crm_E84_Information_Carrier" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="crm:E84_Information_Carrier" vertex="1">
+          <mxGeometry height="204" width="783" x="2148" y="913" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_Book" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:Book" vertex="1">
+          <mxGeometry height="92" width="383" x="2004" y="2478" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_Movie" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:Movie" vertex="1">
+          <mxGeometry height="82" width="380" x="4904" y="2221" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_Event" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:Event" vertex="1">
+          <mxGeometry height="82" width="413" x="4592" y="2963" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_City" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:City" vertex="1">
+          <mxGeometry height="82" width="350" x="3303" y="3173" as="geometry" />
+        </mxCell>
+        <mxCell id="c_skos_Concept" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="skos:Concept" vertex="1">
+          <mxGeometry height="155" width="353" x="3307" y="795" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_Legislation" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:Legislation" vertex="1">
+          <mxGeometry height="99" width="534" x="2246" y="3261" as="geometry" />
+        </mxCell>
+        <mxCell id="c_crm_E36_Visual_Item" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="crm:E36_Visual_Item" vertex="1">
+          <mxGeometry height="89" width="596" x="3695" y="519" as="geometry" />
+        </mxCell>
+        <mxCell id="c_crm_E56_Language" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="crm:E56_Language" vertex="1">
+          <mxGeometry height="157" width="522" x="1169" y="1641" as="geometry" />
+        </mxCell>
+        <mxCell id="c_crm_E74_Group" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="crm:E74_Group" vertex="1">
+          <mxGeometry height="135" width="367" x="1294" y="2509" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="42" width="193" x="1368" y="1377" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="c_schema_Country" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e2" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:date" vertex="1">
+          <mxGeometry height="42" width="153" x="1596" y="1214" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="c_schema_Country" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e4" value="schema:foundingDate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="50" width="183" x="4565" y="801" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="c_schema_PoliticalParty" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e6" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:date" vertex="1">
+          <mxGeometry height="49" width="151" x="4869" y="929" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="c_schema_PoliticalParty" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e8" value="schema:foundingDate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="51" width="173" x="5041" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="c_schema_Mausoleum" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e10" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:date" vertex="1">
+          <mxGeometry height="56" width="162" x="5230" y="1516" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="c_schema_Mausoleum" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e12" value="schema:dateCreated">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:decimal" vertex="1">
+          <mxGeometry height="55" width="200" x="5411" y="1650" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="c_schema_Mausoleum" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e14" value="crm:P43_has_dimension">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="45" width="164" x="2995" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="c_crm_E84_Information_Carrier" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e16" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="42" width="110" x="1894" y="2741" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="c_schema_Book" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e18" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:date" vertex="1">
+          <mxGeometry height="42" width="110" x="1599" y="2667" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="c_schema_Book" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e20" value="schema:datePublished">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="56" width="164" x="5589" y="2298" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="c_schema_Movie" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;exitX=1;exitY=0;exitDx=0;exitDy=0;" target="e22" value="schema:name">
+          <mxGeometry relative="1" x="0.0039" y="8" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="5641.0245040900445" y="2228.565010833559" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:date" vertex="1">
+          <mxGeometry height="55" width="139" x="5487" y="2450" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="c_schema_Movie" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="e24" value="schema:datePublished">
+          <mxGeometry relative="1" x="0.0889" y="-2" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="5642.655805989489" y="2268.084203518315" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e26" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="66" width="163" x="5090" y="2513" as="geometry" />
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="c_schema_Movie" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e26" value="schema:genre">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e28" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="58" width="180" x="5055" y="3205" as="geometry" />
+        </mxCell>
+        <mxCell id="e29" edge="1" parent="1" source="c_schema_Event" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e28" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e30" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:date" vertex="1">
+          <mxGeometry height="66" width="151" x="4714" y="3248" as="geometry" />
+        </mxCell>
+        <mxCell id="e31" edge="1" parent="1" source="c_schema_Event" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e30" value="dct:date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e32" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="54" width="188" x="3700" y="3473" as="geometry" />
+        </mxCell>
+        <mxCell id="e33" edge="1" parent="1" source="c_schema_City" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e32" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:decimal" vertex="1">
+          <mxGeometry height="58" width="201" x="3234" y="3395" as="geometry" />
+        </mxCell>
+        <mxCell id="e35" edge="1" parent="1" source="c_schema_City" style="endArrow=open;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;html=1;" target="e34" value="crm:P43_has_dimension">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e36" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="62" width="163" x="3432" y="541" as="geometry" />
+        </mxCell>
+        <mxCell id="e37" edge="1" parent="1" source="c_skos_Concept" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e36" value="schema:name">
+          <mxGeometry relative="1" x="-0.0116" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e38" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="53" width="178" x="2314" y="3557" as="geometry" />
+        </mxCell>
+        <mxCell id="e39" edge="1" parent="1" source="c_schema_Legislation" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e38" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e40" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:date" vertex="1">
+          <mxGeometry height="60" width="140" x="2016" y="3487" as="geometry" />
+        </mxCell>
+        <mxCell id="e41" edge="1" parent="1" source="c_schema_Legislation" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e40" value="dct:date">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e42" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="82" width="178" x="4112" y="1962" as="geometry" />
+        </mxCell>
+        <mxCell id="e43" edge="1" parent="1" source="c_crm_E21_Person" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e42" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e44" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="59" width="179" x="4434" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="e45" edge="1" parent="1" source="c_crm_E36_Visual_Item" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e44" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e46" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="78" width="176" x="1076" y="1932" as="geometry" />
+        </mxCell>
+        <mxCell id="e47" edge="1" parent="1" source="c_crm_E56_Language" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e46" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e48" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=25;fontStyle=1;strokeWidth=3;" value="xsd:string" vertex="1">
+          <mxGeometry height="63" width="179" x="981" y="2756" as="geometry" />
+        </mxCell>
+        <mxCell id="e49" edge="1" parent="1" source="c_crm_E74_Group" style="endArrow=open;html=1;strokeColor=#82b366;fontColor=#2d6a2d;fontStyle=3;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;strokeWidth=3;" target="e48" value="schema:name">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e50" edge="1" parent="1" source="c_schema_Country" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="schema:founder">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2803" y="1750" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e51" edge="1" parent="1" source="c_schema_Country" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_City" value="wdt:P36">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2812" y="2488" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e52" edge="1" parent="1" source="c_schema_Country" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E84_Information_Carrier" value="crm:P108_has_produced">
+          <mxGeometry relative="1" x="-0.3701" y="16" as="geometry">
+            <mxPoint x="2" y="-1" as="offset" />
+            <Array as="points">
+              <mxPoint x="2023" y="1193" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e53" edge="1" parent="1" source="c_schema_Country" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_skos_Concept" value="schema:about">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2768" y="1150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e54" edge="1" parent="1" source="c_schema_Country" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E56_Language" value="dct:language">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1470" y="1673" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e55" edge="1" parent="1" source="c_schema_PoliticalParty" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="schema:founder">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4210" y="1492" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e56" edge="1" parent="1" source="c_schema_PoliticalParty" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_City" value="schema:location">
+          <mxGeometry relative="1" x="-0.1432" as="geometry">
+            <mxPoint x="-1" y="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="5520" y="1350" />
+              <mxPoint x="6060" y="2595" />
+              <mxPoint x="4675" y="3645" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e57" edge="1" parent="1" source="c_schema_PoliticalParty" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_skos_Concept" value="schema:about">
+          <mxGeometry relative="1" x="-0.0015" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e58" edge="1" parent="1" source="c_schema_PoliticalParty" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E36_Visual_Item" value="crm:P138i_has_representation">
+          <mxGeometry relative="1" x="0.2931" y="4" as="geometry">
+            <mxPoint y="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="4348" y="781" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e59" edge="1" parent="1" source="c_schema_Mausoleum" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="crm:P67_refers_to">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4529" y="1842" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e60" edge="1" parent="1" source="c_schema_Mausoleum" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="schema:architect">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4460" y="1680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e61" edge="1" parent="1" source="c_schema_Mausoleum" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_City" value="schema:location">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4531" y="2553" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e62" edge="1" parent="1" source="c_schema_Mausoleum" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_Event" value="crm:P7i_witnessed">
+          <mxGeometry relative="1" x="0.3644" y="5" as="geometry">
+            <mxPoint y="-2" as="offset" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e63" edge="1" parent="1" source="c_crm_E84_Information_Carrier" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="crm:P138_represents">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3073" y="1451" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e64" edge="1" parent="1" source="c_schema_Country" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E74_Group" value="crm:P108i_was_produced_by">
+          <mxGeometry relative="1" x="-0.2645" y="11" as="geometry">
+            <mxPoint x="1" y="-1" as="offset" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e65" edge="1" parent="1" source="c_schema_Book" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E56_Language" value="dct:language">
+          <mxGeometry relative="1" x="0.1656" y="6" as="geometry">
+            <mxPoint y="-1" as="offset" />
+            <Array as="points">
+              <mxPoint x="1510" y="2070" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e66" edge="1" parent="1" source="c_schema_Book" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="schema:author">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2803" y="2278" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e67" edge="1" parent="1" source="c_schema_Book" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_skos_Concept" value="schema:about">
+          <mxGeometry relative="1" x="0.1501" y="-5" as="geometry">
+            <mxPoint x="2" y="-1" as="offset" />
+            <Array as="points">
+              <mxPoint x="2703" y="1365" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e68" edge="1" parent="1" source="c_schema_Book" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_Country" value="schema:about">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1966" y="1992" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e69" edge="1" parent="1" source="c_schema_Book" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_City" value="schema:locationCreated">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2812" y="3016" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e70" edge="1" parent="1" source="c_schema_Book" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_PoliticalParty" value="schema:about">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2549" y="680" />
+              <mxPoint x="3912" y="440" />
+              <mxPoint x="4893" y="513" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e71" edge="1" parent="1" source="c_schema_Movie" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="schema:about">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4531" y="2285" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e72" edge="1" parent="1" source="c_schema_Movie" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_Country" value="schema:about">
+          <mxGeometry relative="1" x="0.1603" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="5370" y="3690" />
+              <mxPoint x="3043" y="3690" />
+              <mxPoint x="1010" y="3690" />
+              <mxPoint x="918" y="1628" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e73" edge="1" parent="1" source="c_schema_Event" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_Country" value="schema:about">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3458" y="2444" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e74" edge="1" parent="1" source="c_schema_Event" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_City" value="schema:location">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4225" y="3103" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e75" edge="1" parent="1" source="c_schema_Event" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="crm:P11_had_participant">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4295" y="2730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e76" edge="1" parent="1" source="c_schema_City" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="crm:P74i_is_current_or_former_residence_of">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3649" y="2774" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e77" edge="1" parent="1" source="c_skos_Concept" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=28;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="crm:P67_refers_to">
+          <mxGeometry relative="1" x="-0.0009" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="3605" y="1436" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e78" edge="1" parent="1" source="c_skos_Concept" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E36_Visual_Item" value="crm:P138i_has_representation">
+          <mxGeometry relative="1" x="0.2403" y="-4" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="3948" y="723" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e79" edge="1" parent="1" source="c_schema_Legislation" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E21_Person" value="schema:about">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2988" y="2669" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e80" edge="1" parent="1" source="c_schema_Legislation" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_crm_E74_Group" value="schema:creator">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1700" y="2987" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e81" edge="1" parent="1" source="c_schema_Legislation" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_Mausoleum" value="schema:about">
+          <mxGeometry relative="1" x="0.2096" y="4" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="3840" y="3630" />
+              <mxPoint x="4530" y="3225" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e82" edge="1" parent="1" source="c_crm_E74_Group" style="endArrow=block;html=1;strokeColor=#444444;fontColor=#000000;fontSize=25;rounded=0;labelBackgroundColor=#ffffff;fontStyle=1;strokeWidth=3;" target="c_schema_Country" value="schema:parentOrganization">
+          <mxGeometry relative="1" x="-0.4414" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1197" y="2287" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=25;fontStyle=1;align=left;strokeWidth=3;" value="&lt;font style=&quot;font-size: 40px;&quot;&gt;Conceptual Model — The Immortalization of Atatürk&lt;/font&gt;" vertex="1">
+          <mxGeometry height="36" width="1170" x="793" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="sub" parent="1" style="text;html=1;fontSize=37;align=left;fontColor=light-dark(#555555, #ffffff);fontStyle=1;strokeWidth=3;whiteSpace=wrap;" value="Pink = classes of our items (each class once)&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;Green = literals (xsd) · Arrows = properties&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="82" width="955" x="799" y="501" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_c" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=37;strokeWidth=3;" value="Class" vertex="1">
+          <mxGeometry height="50" width="120" x="1671" y="506" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_l" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=37;fontStyle=1;strokeWidth=3;" value="Literal" vertex="1">
+          <mxGeometry height="49" width="207" x="1624" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="c_schema_Country" parent="1" style="ellipse;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;fontStyle=1;fontSize=50;strokeWidth=3;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;whiteSpace=wrap;fontFamily=Helvetica;fillStyle=auto;" value="schema:Country" vertex="1">
+          <mxGeometry height="136" width="453" x="1851" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="_m3_nJr4gIN2Tj2FmQ-3-8" parent="1" style="text;html=1;fontSize=37;align=left;fontColor=#555555;fontStyle=1;strokeWidth=3;whiteSpace=wrap;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(85, 85, 85), rgb(164, 164, 164));&quot;&gt;@prefix rdf:&amp;nbsp; &amp;nbsp; &amp;lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;gt; .&lt;/span&gt;&lt;/div&gt;&lt;div&gt;@prefix xsd:&amp;nbsp; &amp;nbsp; &amp;lt;http://www.w3.org/2001/XMLSchema#&amp;gt; .&lt;/div&gt;&lt;div&gt;@prefix crm:&amp;nbsp; &amp;nbsp; &amp;lt;http://www.cidoc-crm.org/cidoc-crm/&amp;gt; .&lt;/div&gt;&lt;div&gt;@prefix schema: &amp;lt;https://schema.org/&amp;gt; .&lt;/div&gt;&lt;div&gt;@prefix skos:&amp;nbsp; &amp;nbsp;&amp;lt;http://www.w3.org/2004/02/skos/core#&amp;gt; .&lt;/div&gt;&lt;div&gt;@prefix dct:&amp;nbsp; &amp;nbsp; &amp;lt;http://purl.org/dc/terms/&amp;gt; .&lt;/div&gt;&lt;div&gt;@prefix wdt:&amp;nbsp; &amp;nbsp; &amp;lt;http://www.wikidata.org/prop/direct/&amp;gt; .&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="335" width="1109" x="808.5" y="673" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

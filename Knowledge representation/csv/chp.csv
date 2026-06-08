@@ -1,0 +1,17 @@
+subject,predicate,object
+chp,has type,political party
+chp,has title,Republican People's Party (CHP)
+chp,has foundation date,1923
+chp,is founded by,ataturk
+chp,is based in,ankara
+chp,follows,kemalism
+chp,has flag,six_arrows
+#
+# === Conceptual model — chp = schema:PoliticalParty (+ crm:E74_Group) ===
+# has type            -> rdf:type                       (sınıf: schema:PoliticalParty)
+# has title           -> schema:name                    schema:PoliticalParty -> Literal
+# has foundation date -> schema:foundingDate            schema:PoliticalParty -> xsd:date
+# is founded by       -> schema:founder                 schema:PoliticalParty -> crm:E21_Person
+# is based in         -> schema:location                schema:PoliticalParty -> schema:City
+# follows             -> schema:about                   schema:PoliticalParty -> skos:Concept
+# has flag            -> crm:P138i_has_representation    schema:PoliticalParty -> crm:E36_Visual_Item

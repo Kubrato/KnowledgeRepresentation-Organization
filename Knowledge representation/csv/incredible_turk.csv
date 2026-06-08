@@ -1,0 +1,15 @@
+subject,predicate,object
+incredible_turk,has type,movie
+incredible_turk,has title,The Incredible Turk
+incredible_turk,has release date,1958
+incredible_turk,has genre,documentary
+incredible_turk,is about,ataturk
+incredible_turk,is about,turkey
+#
+# === Conceptual model — incredible_turk = schema:Movie (+ crm:E73_Information_Object) ===
+# has type           -> rdf:type            (sınıf: schema:Movie)
+# has title          -> schema:name         schema:Movie -> Literal
+# has release date   -> schema:datePublished schema:Movie -> xsd:date
+# has genre          -> schema:genre        schema:Movie -> Literal
+# is about (ataturk) -> schema:about        schema:Movie -> crm:E21_Person
+# is about (turkey)  -> schema:about        schema:Movie -> schema:Country
