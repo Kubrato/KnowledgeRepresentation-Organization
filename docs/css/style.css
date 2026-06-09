@@ -9,6 +9,8 @@
   --line: #d9d3c5;
   --accent: #4a6b6f;   /* muted teal */
   --accent-soft: #e7ebe9;
+  --gold: #b08d57;     /* muted archival gold, used only as a thin accent */
+  --shadow: 0 1px 3px rgba(43, 43, 40, 0.08), 0 6px 18px rgba(43, 43, 40, 0.05);
 }
 
 * { box-sizing: border-box; }
@@ -17,14 +19,30 @@ body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
-  background: var(--paper);
+  /* soft "aged paper" wash so the background is not a flat colour */
+  background:
+    radial-gradient(circle at 18% 12%, rgba(176, 141, 87, 0.06), transparent 45%),
+    radial-gradient(circle at 85% 8%, rgba(74, 107, 111, 0.06), transparent 40%),
+    var(--paper);
+  background-attachment: fixed;
   line-height: 1.6;
 }
 
 /* Header + navigation */
 header {
-  background: var(--card);
+  /* faint archival pattern: fine diagonal hatch over a soft dotted grid */
+  background-color: var(--card);
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(176, 141, 87, 0.05) 0, rgba(176, 141, 87, 0.05) 1px,
+      transparent 1px, transparent 9px),
+    radial-gradient(rgba(74, 107, 111, 0.06) 1px, transparent 1px);
+  background-size: auto, 18px 18px;
   border-bottom: 1px solid var(--line);
+  /* thin gold + teal accent ribbon along the very top of the page */
+  border-top: 3px solid var(--gold);
+  box-shadow: var(--shadow);
+  position: relative;
 }
 
 .site-title {
@@ -35,37 +53,69 @@ header {
 
 .site-title h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   letter-spacing: 0.5px;
+  font-variant: small-caps;   /* classic title-page feel */
 }
 
 .site-title p {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   color: var(--muted);
   font-size: 0.95rem;
+  font-style: italic;
+  /* small ornamental rule before the subtitle */
+  padding-left: 30px;
+  position: relative;
+}
+
+.site-title p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 22px;
+  height: 1px;
+  background: var(--gold);
 }
 
 nav {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 6px 14px 0;
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  /* distinct coloured band for the whole nav bar */
+  background: var(--accent-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 2px solid var(--gold);
+  border-radius: 8px 8px 0 0;
 }
 
 nav a {
   display: inline-block;
   padding: 10px 16px;
+  margin-bottom: -2px;            /* let the active tab sit on the gold rule */
   text-decoration: none;
   color: var(--muted);
-  border-bottom: 3px solid transparent;
+  letter-spacing: 0.3px;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-nav a:hover { color: var(--ink); }
+nav a:hover {
+  color: var(--ink);
+  background: var(--card);
+}
 
 nav a.active {
   color: var(--accent);
-  border-bottom-color: var(--accent);
+  background: var(--card);
+  border-color: var(--line);
+  border-bottom: 2px solid var(--card);   /* lifts the tab above the gold rule */
+  font-weight: bold;
+  box-shadow: 0 -2px 6px rgba(43, 43, 40, 0.05);
 }
 
 /* Main content */
@@ -76,17 +126,46 @@ main {
 }
 
 h2 {
-  font-size: 1.3rem;
-  margin-top: 40px;
+  font-size: 1.35rem;
+  margin-top: 44px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 6px;
+}
+
+/* small decorative marker before every section heading */
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(var(--accent), var(--gold));
 }
 
 h2:first-of-type { margin-top: 0; }
 
 p { max-width: none; }
 
-a { color: var(--accent); }
+/* drop cap on the opening paragraph of the page for a printed-book feel */
+main > p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.1rem;
+  line-height: 0.8;
+  padding: 4px 10px 0 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+a {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+a:hover { color: var(--gold); }
 
 /* Figures */
 figure {
@@ -99,36 +178,51 @@ figure img {
   height: auto;
   border: 1px solid var(--line);
   background: var(--card);
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: var(--shadow);
 }
 
 figcaption {
   color: var(--muted);
   font-size: 0.9rem;
-  margin-top: 8px;
+  font-style: italic;
+  margin-top: 10px;
 }
 
 /* Table */
 table {
   border-collapse: collapse;
   width: 100%;
-  margin: 20px 0;
+  margin: 24px 0;
   font-size: 0.92rem;
   background: var(--card);
+  border-radius: 6px;
+  overflow: hidden;          /* keeps rounded corners over the header row */
+  box-shadow: var(--shadow);
 }
 
 th, td {
   border: 1px solid var(--line);
-  padding: 8px 10px;
+  padding: 10px 12px;
   text-align: left;
   vertical-align: top;
 }
 
 th {
-  background: var(--accent-soft);
-  color: var(--ink);
+  background: var(--accent);
+  color: #f7f4ed;
+  font-variant: small-caps;
+  letter-spacing: 0.4px;
 }
 
 tr:nth-child(even) td { background: #f7f4ed; }
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover td { background: var(--accent-soft); }
 
 code {
   font-family: "Courier New", monospace;
@@ -169,16 +263,24 @@ pre code.hljs {
 .files li { margin: 6px 0; }
 
 .files a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 8px 14px;
   border: 1px solid var(--line);
   border-radius: 4px;
   background: var(--card);
   text-decoration: none;
   color: var(--accent);
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
-.files a:hover { background: var(--accent-soft); }
+.files a:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
 
 .files .what {
   color: var(--muted);
@@ -198,8 +300,10 @@ pre code.hljs {
 details.code {
   margin: 12px 0 24px;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 6px;
   background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 details.code summary {
@@ -270,11 +374,25 @@ img.zoomable.zoomed {
 
 footer {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 40px auto 0;
   padding: 24px 20px;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.85rem;
+  position: relative;
+}
+
+/* small centred ornament above the footer text */
+footer::before {
+  content: "❦";
+  position: absolute;
+  top: -0.75em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--paper);
+  padding: 0 12px;
+  color: var(--gold);
+  font-size: 1rem;
 }
 
 footer p { max-width: 70ch; margin: 0 0 8px; }
