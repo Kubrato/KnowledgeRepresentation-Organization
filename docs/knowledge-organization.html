@@ -8,15 +8,17 @@
 </head>
 <body>
   <header>
-    <div class="site-title">
-      <h1>Immortalising a Nation's Founder</h1>
-      <p>Atatürk in cultural heritage — a Linked Open Data project</p>
+    <div class="bar">
+      <div class="site-title">
+        <h1>Immortalising a Nation's Founder</h1>
+        <p>Atatürk in cultural heritage: a Linked Open Data project</p>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="knowledge-organization.html" class="active">Knowledge Organization</a>
+        <a href="representation.html">Representation</a>
+      </nav>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="knowledge-organization.html" class="active">Knowledge Organization</a>
-      <a href="representation.html">Representation</a>
-    </nav>
   </header>
 
   <main>
@@ -36,7 +38,7 @@
       TEI encoding through a <code>&lt;listRelation&gt;</code> element. 
       Further information describing each item was then recorded in its own CSV table as
       <strong>natural-language triple statements</strong> in a simple
-      <em>subject – predicate – object</em> form — for example
+      <em>subject – predicate – object</em> form, for example
       <code>anitkabir – has construction date – 1953</code>. <br>
       Read together, the items and their relations form a mind map: Atatürk sits in the centre 
       and the items branch out from him through labelled relations, such as a mausoleum that
@@ -44,7 +46,7 @@
     </p>
     <figure>
       <img src="assets/theoretical-model.webp" class="zoomable" alt="Theoretical model: radial mind map of items and relations">
-      <figcaption>Theoretical model — items (individuals) and the relations between them.</figcaption>
+      <figcaption>Theoretical model: items (individuals) and the relations between them.</figcaption>
     </figure>
 
     <h2>Conceptual model</h2>
@@ -57,25 +59,25 @@
       reuses existing, widely adopted vocabularies:
     </p>
     <ul>
-      <li><strong>Schema.org</strong> (<code>schema:</code>) — the privileged source for general types such as Book, Movie, City, Event and Country.</li>
-      <li><strong>CIDOC-CRM</strong> (<code>crm:</code>) — for cultural-heritage-specific classes and properties: sites, people, physical dimensions and reference relations.</li>
-      <li><strong>SKOS</strong> (<code>skos:</code>) — for the abstract concept (Kemalism).</li>
-      <li><strong>Dublin Core Terms</strong> (<code>dct:</code>) — for dates and language.</li>
+      <li><strong>Schema.org</strong> (<code>schema:</code>), the main source for general types such as Book, Movie, City, Event and Country.</li>
+      <li><strong>CIDOC-CRM</strong> (<code>crm:</code>) for cultural-heritage-specific classes and properties: sites, people, physical dimensions and reference relations.</li>
+      <li><strong>SKOS</strong> (<code>skos:</code>) for the abstract concept (Kemalism).</li>
+      <li><strong>Dublin Core Terms</strong> (<code>dct:</code>) for dates and language.</li>
     </ul>
     <p>
       Literals were made explicit by declaring their datatype with the XML Schema
       Definition (<code>xsd:</code>) language, and every item is linked to its
       <strong>Wikidata authority record</strong> so that the local data reconciles
       with an external, shared identifier. Where no suitable published class
-      existed — for the bridge entities that hold the network together, such as the
+      existed (for the bridge entities that hold the network together, such as the
       <em>Six Arrows</em> emblem, the Turkish language, the national assembly and
-      the central bank — the closest CIDOC-CRM class was chosen (<code>crm:E36
+      the central bank), the closest CIDOC-CRM class was chosen (<code>crm:E36
       Visual&nbsp;Item</code>, <code>crm:E56 Language</code>, <code>crm:E74
       Group</code>).
     </p>
     <figure>
       <img src="assets/conceptual-model.webp" class="zoomable" alt="Conceptual model: ontology of classes and properties">
-      <figcaption>Conceptual model — classes and properties only, no individuals.</figcaption>
+      <figcaption>Conceptual model: classes and properties only, no individuals.</figcaption>
     </figure>
 
     <h2>From one model to the other</h2>
@@ -83,7 +85,7 @@
       The two models describe the same project at different levels. The mind map
       answers <em>"which items are connected?"</em> The ontology answers
       <em>"what kinds of things are these, and how are they linked in general?"</em>
-      The data on the next page must match the ontology exactly — every class and
+      The data on the next page must match the ontology exactly: every class and
       property in the model is used in the data, and nothing is used that is not in
       the model.
     </p>
@@ -94,7 +96,7 @@
       This website was created by Kübra Topçuoğlu for the course
       <em>Information Science and Cultural Heritage</em>, A.Y. 2025/2026,
       within the master's course in Digital Humanities and Digital Knowledge
-      at the Alma Mater Studiorum — University of Bologna.
+      at the University of Bologna (Alma Mater Studiorum).
     </p>
     <p class="copyright">
       Copyright © Kübra Topçuoğlu

@@ -9,15 +9,17 @@
 </head>
 <body>
   <header>
-    <div class="site-title">
-      <h1>Immortalising a Nation's Founder</h1>
-      <p>Atatürk in cultural heritage — a Linked Open Data project</p>
+    <div class="bar">
+      <div class="site-title">
+        <h1>Immortalising a Nation's Founder</h1>
+        <p>Atatürk in cultural heritage: a Linked Open Data project</p>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="knowledge-organization.html">Knowledge Organization</a>
+        <a href="representation.html" class="active">Representation</a>
+      </nav>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="knowledge-organization.html">Knowledge Organization</a>
-      <a href="representation.html" class="active">Representation</a>
-    </nav>
   </header>
 
   <main>
@@ -28,20 +30,14 @@
       taken from it, the extra entities are added from CSV tables, and everything is
       merged into a single dataset that follows the conceptual model exactly.
     </p>
-    <ol class="pipeline">
-      <li><strong>TEI/XML</strong> — the source text with the entities annotated.</li>
-      <li><strong>TEI → HTML</strong> (XSLT) — a readable web version of the text.</li>
-      <li><strong>TEI → RDF</strong> (Python) — the data stated in the text.</li>
-      <li><strong>CSV → RDF</strong> (Python) — the extra data not in the text.</li>
-      <li><strong>Merge</strong> (Python) — the two RDF parts joined into one graph.</li>
-    </ol>
+    
 
     <h2>1. TEI/XML document</h2>
     <p>
       The TEI file encodes short excerpts from the Wikipedia article on Atatürk. It
       has two parts. The <strong>body</strong> keeps the logical structure of the
       text (sections, headings, paragraphs) and annotates each of the ten entities
-      where it appears — using <code>&lt;persName&gt;</code>,
+      where it appears, using <code>&lt;persName&gt;</code>,
       <code>&lt;placeName&gt;</code>, <code>&lt;orgName&gt;</code>,
       <code>&lt;title&gt;</code> and <code>&lt;rs&gt;</code>. Quotations are marked
       with <code>&lt;quote&gt;</code> as a textual phenomenon.
@@ -563,7 +559,7 @@ print(&quot;Done. Wrote&quot;, len(g), &quot;triples to&quot;, out_file)
 
     <h2>4. CSV → RDF (Python)</h2>
     <p>
-      The CSV tables hold the extra data that is not written in the text — the
+      The CSV tables hold the extra data that is not written in the text: the
       architects, the parliament, the central bank, the language, the emblem, and
       dates and dimensions. This script reads every CSV row in
       <em>subject – predicate – object</em> form and turns it into RDF, using the
@@ -907,7 +903,7 @@ wd:Q5152 a crm:E21_Person ;
       This website was created by Kübra Topçuoğlu for the course
       <em>Information Science and Cultural Heritage</em>, A.Y. 2025/2026,
       within the master's course in Digital Humanities and Digital Knowledge
-      at the Alma Mater Studiorum — University of Bologna.
+      at the University of Bologna (Alma Mater Studiorum).
     </p>
     <p class="copyright">
       Copyright © Kübra Topçuoğlu
