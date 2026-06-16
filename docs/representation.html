@@ -447,12 +447,14 @@
 import os
 import xml.etree.ElementTree as ET          # built-in library to read XML
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF            # gives us rdf:type
+from rdflib.namespace import RDF, FOAF      # rdf:type and foaf:
 
 # ----- 1. Namespaces (the same prefixes used in our conceptual model) -----
 CRM    = Namespace(&quot;http://www.cidoc-crm.org/cidoc-crm/&quot;)
 SCHEMA = Namespace(&quot;https://schema.org/&quot;)
 SKOS   = Namespace(&quot;http://www.w3.org/2004/02/skos/core#&quot;)
+DCT    = Namespace(&quot;http://purl.org/dc/terms/&quot;)
+FRBR   = Namespace(&quot;http://purl.org/vocab/frbr/core#&quot;)
 WDT    = Namespace(&quot;http://www.wikidata.org/prop/direct/&quot;)
 WD     = Namespace(&quot;http://www.wikidata.org/entity/&quot;)   # our entities ARE Wikidata entities
 
@@ -476,16 +478,19 @@ TYPES = {
     &quot;ankara&quot;:          SCHEMA.City,
     &quot;kemalism&quot;:        SKOS.Concept,
     &quot;law_5816&quot;:        SCHEMA.Legislation,
+    &quot;nutuk&quot;:           FRBR.Work,       # Nutuk is a frbr:Work (see csv/nutuk.csv for the full WEMI)
 }
 
 # Each relation name used in the TEI &lt;listRelation&gt; maps to a property.
+# These must match the same predicates in csv_to_rdf.py so the two datasets
+# merge cleanly (one edge -&gt; one property, not two).
 RELATIONS = {
     &quot;founder&quot;:   SCHEMA.founder,
-    &quot;represents&quot;: CRM.P138_represents,
-    &quot;about&quot;:     SCHEMA.about,
-    &quot;author&quot;:    SCHEMA.author,
+    &quot;represents&quot;: FOAF.depicts,
+    &quot;about&quot;:     DCT.subject,
+    &quot;author&quot;:    FOAF.maker,
     &quot;refers_to&quot;: CRM.P67_refers_to,
-    &quot;location&quot;:  SCHEMA.location,
+    &quot;location&quot;:  DCT.spatial,
     &quot;capital&quot;:   WDT.P36,
 }
 
@@ -501,6 +506,9 @@ g = Graph()
 g.bind(&quot;crm&quot;, CRM)
 g.bind(&quot;schema&quot;, SCHEMA)
 g.bind(&quot;skos&quot;, SKOS)
+g.bind(&quot;dct&quot;, DCT)
+g.bind(&quot;foaf&quot;, FOAF)
+g.bind(&quot;frbr&quot;, FRBR)
 g.bind(&quot;wdt&quot;, WDT)
 g.bind(&quot;wd&quot;, WD)
 
@@ -539,6 +547,9 @@ for el in root.iter():
 
     # Statement 1: the entity is an instance of its class.
     g.add((uri, RDF.type, TYPES[xml_id]))
+    # A person is also a foaf:Person (CIDOC-CRM + FOAF together).
+    if TYPES[xml_id] == CRM.E21_Person:
+        g.add((uri, RDF.type, FOAF.Person))
     # Statement 2: the entity has a name (a string literal).
     g.add((uri, SCHEMA.name, Literal(get_name(el))))
 
@@ -567,6 +578,17 @@ print(&quot;Done. Wrote&quot;, len(g), &quot;triples to&quot;, out_file)
       <code>xsd:</code> (dates and numbers).
       Its RDF output is <a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/turtle/ataturk_csv.ttl" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>ataturk_csv.ttl</a>.
     </p>
+    <p>
+      To stay close to Linked Open Data practice, the predicates are spread over
+      several established vocabularies rather than just one or two:
+      <code>schema:</code>, CIDOC-CRM (<code>crm:</code>), Dublin Core
+      (<code>dct:</code>), FOAF (<code>foaf:</code>) and SKOS (<code>skos:</code>).
+      The book <em>Nutuk</em> is modelled with the four <strong>FRBR</strong> levels
+      (Work&nbsp;→&nbsp;Expression&nbsp;→&nbsp;Manifestation&nbsp;→&nbsp;Item) instead
+      of a single node. Finally, every entity is linked to its
+      <strong>DBpedia</strong> twin with <code>owl:sameAs</code>, so the dataset
+      connects outward to the wider web.
+    </p>
     <details class="code">
   <summary>Show code<a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/to_rdf/csv_to_rdf.py" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>csv_to_rdf.py</a></summary>
   <pre><code class="language-python"># ============================================================
@@ -587,15 +609,19 @@ print(&quot;Done. Wrote&quot;, len(g), &quot;triples to&quot;, out_file)
 import os
 import csv                                  # built-in library to read CSV
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF, XSD       # rdf:type and the xsd: datatypes
+from rdflib.namespace import RDF, XSD, FOAF, OWL   # rdf:type, xsd: datatypes, foaf:, owl:
 
 # ----- 1. Namespaces (same prefixes as the conceptual model) -----
 CRM    = Namespace(&quot;http://www.cidoc-crm.org/cidoc-crm/&quot;)
 SCHEMA = Namespace(&quot;https://schema.org/&quot;)
 SKOS   = Namespace(&quot;http://www.w3.org/2004/02/skos/core#&quot;)
 DCT    = Namespace(&quot;http://purl.org/dc/terms/&quot;)
+FRBR   = Namespace(&quot;http://purl.org/vocab/frbr/core#&quot;)     # FRBR Work/Expression/Manifestation/Item
 WDT    = Namespace(&quot;http://www.wikidata.org/prop/direct/&quot;)
 WD     = Namespace(&quot;http://www.wikidata.org/entity/&quot;)
+DBP    = Namespace(&quot;http://dbpedia.org/resource/&quot;)         # the DBpedia twin of each entity
+# Our own namespace, for the FRBR levels of Nutuk that have no Wikidata id.
+EX     = Namespace(&quot;https://kubrato.github.io/KnowledgeRepresentation-Organization/id/&quot;)
 
 # ----- 2. Every entity id used in the CSV files -&gt; its Wikidata URI -----
 # The first 11 are the same entities as in the TEI file (so the two RDF
@@ -610,6 +636,22 @@ WIKIDATA = {
     &quot;tcmb&quot;: &quot;Q580829&quot;, &quot;turkish_language&quot;: &quot;Q256&quot;, &quot;six_arrows&quot;: &quot;Q6030041&quot;,
 }
 
+# ----- 2b. The same entities in DBpedia (for owl:sameAs links) -----
+# Each value is the DBpedia article name. &quot;incredible_turk&quot; has no English
+# Wikipedia article, so it has no DBpedia twin and is left out on purpose.
+DBPEDIA = {
+    &quot;ataturk&quot;: &quot;Mustafa_Kemal_Atatürk&quot;, &quot;turkey&quot;: &quot;Turkey&quot;,
+    &quot;chp&quot;: &quot;Republican_People&#x27;s_Party&quot;, &quot;anitkabir&quot;: &quot;Anıtkabir&quot;,
+    &quot;tl_banknote&quot;: &quot;Turkish_lira&quot;, &quot;nutuk&quot;: &quot;Nutuk&quot;,
+    &quot;republic_day&quot;: &quot;Republic_Day_(Turkey)&quot;, &quot;ankara&quot;: &quot;Ankara&quot;,
+    &quot;kemalism&quot;: &quot;Kemalism&quot;,
+    &quot;law_5816&quot;: &quot;Law_on_crimes_committed_against_Atatürk&quot;,
+    &quot;onat&quot;: &quot;Emin_Halid_Onat&quot;, &quot;arda&quot;: &quot;Orhan_Arda&quot;,
+    &quot;tbmm&quot;: &quot;Grand_National_Assembly_of_Turkey&quot;,
+    &quot;tcmb&quot;: &quot;Central_Bank_of_the_Republic_of_Turkey&quot;,
+    &quot;turkish_language&quot;: &quot;Turkish_language&quot;, &quot;six_arrows&quot;: &quot;The_Six_Arrows&quot;,
+}
+
 # ----- 3. The conceptual model mapping -----
 # &quot;has type&quot; value (in the CSV) -&gt; the class of that entity.
 TYPE_CLASS = {
@@ -618,49 +660,59 @@ TYPE_CLASS = {
     &quot;language&quot;: CRM.E56_Language, &quot;person&quot;: CRM.E21_Person,
     &quot;assembly&quot;: CRM.E74_Group, &quot;organization&quot;: CRM.E74_Group,
     &quot;movie&quot;: SCHEMA.Movie, &quot;concept&quot;: SKOS.Concept,
-    &quot;legislation&quot;: SCHEMA.Legislation, &quot;book&quot;: SCHEMA.Book,
+    &quot;legislation&quot;: SCHEMA.Legislation,
     &quot;event&quot;: SCHEMA.Event, &quot;object&quot;: CRM.E84_Information_Carrier,
     &quot;country&quot;: SCHEMA.Country,
+    # Nutuk is modelled with the four FRBR levels (Work -&gt; Expression -&gt;
+    # Manifestation -&gt; Item) instead of a single schema:Book node.
+    &quot;work&quot;: FRBR.Work, &quot;expression&quot;: FRBR.Expression,
+    &quot;manifestation&quot;: FRBR.Manifestation, &quot;item&quot;: FRBR.Item,
 }
 
 # Every CSV predicate -&gt; the property it becomes in RDF.
+# We spread the predicates over several vocabularies (schema, crm, dct, foaf,
+# skos, frbr, wdt) instead of leaning only on schema: and crm:.
 PROP = {
     &quot;has title&quot;: SCHEMA.name,
-    &quot;has construction date&quot;: SCHEMA.dateCreated,
+    &quot;has construction date&quot;: DCT.created,
     &quot;has foundation date&quot;: SCHEMA.foundingDate,
-    &quot;has publication date&quot;: SCHEMA.datePublished,
-    &quot;has release date&quot;: SCHEMA.datePublished,
+    &quot;has publication date&quot;: DCT.issued,
+    &quot;has release date&quot;: DCT.issued,
     &quot;has date&quot;: DCT.date,
     &quot;has area&quot;: CRM.P43_has_dimension,
     &quot;has genre&quot;: SCHEMA.genre,
     &quot;is dedicated to&quot;: CRM.P67_refers_to,
-    &quot;is located in&quot;: SCHEMA.location,
+    &quot;is located in&quot;: DCT.spatial,
     &quot;has architect&quot;: SCHEMA.architect,
     &quot;hosts&quot;: CRM.P7i_witnessed,
     &quot;is residence of&quot;: CRM.P74i_is_current_or_former_residence_of,
     &quot;is founded by&quot;: SCHEMA.founder,
     &quot;is based in&quot;: SCHEMA.location,
-    &quot;follows&quot;: SCHEMA.about,
+    &quot;follows&quot;: DCT.subject,
     &quot;has flag&quot;: CRM.P138i_has_representation,
-    &quot;is about&quot;: SCHEMA.about,
-    &quot;is enacted by&quot;: SCHEMA.creator,
+    &quot;is about&quot;: DCT.subject,
+    &quot;is enacted by&quot;: DCT.creator,
     &quot;protects&quot;: SCHEMA.about,
-    &quot;has author&quot;: SCHEMA.author,
+    &quot;has author&quot;: FOAF.maker,
     &quot;has language&quot;: DCT.language,
     &quot;is published in&quot;: SCHEMA.locationCreated,
     &quot;is delivered to&quot;: SCHEMA.about,
-    &quot;depicts&quot;: CRM.P138_represents,
+    &quot;depicts&quot;: FOAF.depicts,
     &quot;is issued by&quot;: CRM.P108i_was_produced_by,
-    &quot;commemorates&quot;: SCHEMA.about,
-    &quot;is celebrated in&quot;: SCHEMA.location,
+    &quot;commemorates&quot;: DCT.subject,
+    &quot;is celebrated in&quot;: DCT.spatial,
     &quot;had participant&quot;: CRM.P11_had_participant,
     &quot;has capital&quot;: WDT.P36,
     &quot;has currency&quot;: CRM.P108_has_produced,
-    &quot;relates to&quot;: SCHEMA.about,
+    &quot;relates to&quot;: DCT.subject,
     &quot;has official language&quot;: DCT.language,
     &quot;is agency of&quot;: SCHEMA.parentOrganization,
-    &quot;is defined by&quot;: CRM.P138i_has_representation,
+    &quot;is defined by&quot;: SKOS.related,
     &quot;is based on&quot;: CRM.P67_refers_to,
+    # FRBR (WEMI) links used to model Nutuk at four levels.
+    &quot;is realised in&quot;: FRBR.realization,    # Work       -&gt; Expression
+    &quot;is embodied in&quot;: FRBR.embodiment,     # Expression -&gt; Manifestation
+    &quot;is exemplified by&quot;: FRBR.exemplar,    # Manifestation -&gt; Item
 }
 
 # Predicates whose object is a literal value (text or number), not an entity.
@@ -670,9 +722,13 @@ DECIMAL_PREDS = {&quot;has area&quot;}
 STRING_PREDS  = {&quot;has title&quot;, &quot;has genre&quot;}
 
 
-# Helper: turn an entity id (&quot;ankara&quot;) into its Wikidata URI.
+# Helper: turn an entity id (&quot;ankara&quot;) into its URI. Most entities are
+# Wikidata entities; the extra FRBR levels of Nutuk live in our own (EX)
+# namespace because they have no Wikidata id.
 def uri(entity_id):
-    return URIRef(WD + WIKIDATA[entity_id])
+    if entity_id in WIKIDATA:
+        return URIRef(WD + WIKIDATA[entity_id])
+    return URIRef(EX + entity_id)
 
 
 # ----- 4. Prepare the graph -----
@@ -681,8 +737,12 @@ g.bind(&quot;crm&quot;, CRM)
 g.bind(&quot;schema&quot;, SCHEMA)
 g.bind(&quot;skos&quot;, SKOS)
 g.bind(&quot;dct&quot;, DCT)
+g.bind(&quot;foaf&quot;, FOAF)
+g.bind(&quot;frbr&quot;, FRBR)
+g.bind(&quot;owl&quot;, OWL)
 g.bind(&quot;wdt&quot;, WDT)
 g.bind(&quot;wd&quot;, WD)
+g.bind(&quot;dbpedia&quot;, DBP)
 
 # ----- 5. Read every CSV file in the ../csv folder -----
 HERE = os.path.dirname(os.path.abspath(__file__))   # folder of this script (to_rdf)
@@ -704,6 +764,9 @@ for filename in sorted(os.listdir(csv_dir)):
             # Case A: &quot;has type&quot; -&gt; rdf:type with the class of the entity.
             if predicate == &quot;has type&quot;:
                 g.add((uri(subject), RDF.type, TYPE_CLASS[obj]))
+                # A person is also a foaf:Person (CIDOC-CRM + FOAF together).
+                if obj == &quot;person&quot;:
+                    g.add((uri(subject), RDF.type, FOAF.Person))
 
             # Case B: the object is a date literal.
             # A full date (YYYY-MM-DD) is xsd:date; a year on its own is xsd:gYear.
@@ -723,6 +786,12 @@ for filename in sorted(os.listdir(csv_dir)):
             # Case E: the object is another entity -&gt; use its URI.
             else:
                 g.add((uri(subject), PROP[predicate], uri(obj)))
+
+# ----- 5b. Link every entity to its DBpedia twin with owl:sameAs -----
+# This is the Linked Open Data step: it says &quot;this Wikidata entity and that
+# DBpedia entity are the same real-world thing&quot;, so our data joins the wider web.
+for entity_id, dbpedia_title in DBPEDIA.items():
+    g.add((uri(entity_id), OWL.sameAs, URIRef(DBP + dbpedia_title)))
 
 # ----- 6. Write the RDF to a Turtle file -----
 out_file = os.path.join(BASE, &quot;turtle&quot;, &quot;ataturk_csv.ttl&quot;)
@@ -778,12 +847,14 @@ print(&quot;Done. Merged graph has&quot;, len(g), &quot;triples -&gt;&quot;, out
     <p>
       The final dataset is serialised in Turtle. It is one connected graph: every
       entity points back to Atatürk (<code>wd:Q5152</code>) through the
-      relations defined in the ontology. The diagram below shows the whole graph;
-      the Turtle preview under it shows the same graph as data. The full file can be
-      downloaded <a href="assets/rdf-graph.png" target="_blank">here.</a>
+      relations defined in the ontology, and each one also points outward to its
+      <strong>DBpedia</strong> twin through <code>owl:sameAs</code>. The diagram
+      below shows the whole graph; the Turtle preview under it shows the same graph
+      as data. The full file can be
+      downloaded <a href="assets/rdf-grapher.png" target="_blank">here.</a>
     </p>
     <figure>
-      <img src="assets/rdf-graph.png" class="zoomable" alt="Full RDF graph of the dataset: every resource, literal and relation">
+      <img src="assets/rdf-grapher.png" class="zoomable" alt="Full RDF graph of the dataset: every resource, literal and relation">
       <figcaption>The picture was produced with
       <a href="https://www.ldf.fi/service/rdf-grapher" target="_blank" rel="noopener">RDF Grapher</a>,
       an online tool that reads an RDF file and draws it as a graph. The merged Turtle file (<code>ataturk_merged.ttl</code>) was given to it as input; the
@@ -793,7 +864,11 @@ print(&quot;Done. Merged graph has&quot;, len(g), &quot;triples -&gt;&quot;, out
     <details class="code">
   <summary>Show code<a class="gh-file" href="https://github.com/Kubrato/KnowledgeRepresentation-Organization/blob/main/Knowledge%20representation/turtle/ataturk_merged.ttl" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>ataturk_merged.ttl</a></summary>
   <pre><code class="language-turtle">@prefix crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .
+@prefix dbpedia: &lt;http://dbpedia.org/resource/&gt; .
 @prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix frbr: &lt;http://purl.org/vocab/frbr/core#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
 @prefix schema: &lt;https://schema.org/&gt; .
 @prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
 @prefix wd: &lt;http://www.wikidata.org/entity/&gt; .
@@ -801,100 +876,131 @@ print(&quot;Done. Merged graph has&quot;, len(g), &quot;triples -&gt;&quot;, out
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 
 wd:Q1519065 a schema:Legislation ;
-    dct:date "1951"^^xsd:gYear ;
-    schema:about wd:Q5152,
-        wd:Q615404 ;
-    schema:creator wd:Q274918 ;
-    schema:name "Law No. 5816 on Crimes Committed Against Atatürk" .
+    dct:creator wd:Q274918 ;
+    dct:date &quot;1951&quot;^^xsd:gYear ;
+    dct:subject wd:Q5152 ;
+    owl:sameAs dbpedia:Law_on_crimes_committed_against_Atatürk ;
+    schema:about wd:Q615404 ;
+    schema:name &quot;Law No. 5816 on Crimes Committed Against Atatürk&quot; .
 
-wd:Q2005693 a schema:Book ;
-    dct:language wd:Q256 ;
-    schema:about wd:Q19079,
-        wd:Q269443,
+wd:Q2005693 a frbr:Work ;
+    dct:subject wd:Q269443,
         wd:Q43 ;
-    schema:author wd:Q5152 ;
-    schema:datePublished "1927"^^xsd:gYear ;
-    schema:locationCreated wd:Q3640 ;
-    schema:name "Nutuk" .
+    frbr:realization &lt;https://kubrato.github.io/KnowledgeRepresentation-Organization/id/nutuk_expression&gt; ;
+    owl:sameAs dbpedia:Nutuk ;
+    foaf:maker wd:Q5152 ;
+    schema:about wd:Q19079 ;
+    schema:name &quot;Nutuk&quot; .
 
 wd:Q31190822 a schema:Movie ;
-    schema:about wd:Q43,
+    dct:issued &quot;1958&quot;^^xsd:gYear ;
+    dct:subject wd:Q43,
         wd:Q5152 ;
-    schema:datePublished "1958"^^xsd:gYear ;
-    schema:genre "documentary" ;
-    schema:name "The Incredible Turk" .
+    schema:genre &quot;documentary&quot; ;
+    schema:name &quot;The Incredible Turk&quot; .
 
 wd:Q172872 a crm:E84_Information_Carrier ;
     crm:P108i_was_produced_by wd:Q580829 ;
-    crm:P138_represents wd:Q5152 ;
-    schema:name "Turkish lira banknote" .
+    owl:sameAs dbpedia:Turkish_lira ;
+    foaf:depicts wd:Q5152 ;
+    schema:name &quot;Turkish lira banknote&quot; .
 
 wd:Q19079 a schema:PoliticalParty ;
+    dct:subject wd:Q269443 ;
     crm:P138i_has_representation wd:Q6030041 ;
-    schema:about wd:Q269443 ;
+    owl:sameAs &lt;http://dbpedia.org/resource/Republican_People&#x27;s_Party&gt; ;
     schema:founder wd:Q5152 ;
-    schema:foundingDate "1923"^^xsd:gYear ;
+    schema:foundingDate &quot;1923&quot;^^xsd:gYear ;
     schema:location wd:Q3640 ;
-    schema:name "Republican People's Party (CHP)" .
+    schema:name &quot;Republican People&#x27;s Party (CHP)&quot; .
 
 wd:Q274918 a crm:E74_Group ;
-    schema:name "Grand National Assembly of Turkey" ;
+    owl:sameAs dbpedia:Grand_National_Assembly_of_Turkey ;
+    schema:name &quot;Grand National Assembly of Turkey&quot; ;
     schema:parentOrganization wd:Q43 .
 
-wd:Q5372464 a crm:E21_Person ;
-    schema:name "Emin Onat" .
+wd:Q5372464 a crm:E21_Person,
+        foaf:Person ;
+    owl:sameAs dbpedia:Emin_Halid_Onat ;
+    schema:name &quot;Emin Onat&quot; .
 
 wd:Q580829 a crm:E74_Group ;
-    schema:name "Central Bank of the Republic of Turkey" ;
+    owl:sameAs dbpedia:Central_Bank_of_the_Republic_of_Turkey ;
+    schema:name &quot;Central Bank of the Republic of Turkey&quot; ;
     schema:parentOrganization wd:Q43 .
 
-wd:Q6065347 a crm:E21_Person ;
-    schema:name "Orhan Arda" .
+wd:Q6065347 a crm:E21_Person,
+        foaf:Person ;
+    owl:sameAs dbpedia:Orhan_Arda ;
+    schema:name &quot;Orhan Arda&quot; .
 
 wd:Q615404 a schema:Mausoleum ;
+    dct:created &quot;1953&quot;^^xsd:gYear ;
+    dct:spatial wd:Q3640 ;
     crm:P43_has_dimension 720000.0 ;
     crm:P67_refers_to wd:Q5152 ;
     crm:P7i_witnessed wd:Q803181 ;
+    owl:sameAs dbpedia:Anıtkabir ;
     schema:architect wd:Q5372464,
         wd:Q6065347 ;
-    schema:dateCreated "1953"^^xsd:gYear ;
-    schema:location wd:Q3640 ;
-    schema:name "Anıtkabir" .
+    schema:name &quot;Anıtkabir&quot; .
 
 wd:Q803181 a schema:Event ;
-    dct:date "1923-10-29"^^xsd:date ;
+    dct:date &quot;1923-10-29&quot;^^xsd:date ;
+    dct:spatial wd:Q3640 ;
+    dct:subject wd:Q43 ;
     crm:P11_had_participant wd:Q5152 ;
-    schema:about wd:Q43 ;
-    schema:location wd:Q3640 ;
-    schema:name "Republic Day" .
+    owl:sameAs dbpedia:Republic_Day_\(Turkey\) ;
+    schema:name &quot;Republic Day&quot; .
+
+&lt;https://kubrato.github.io/KnowledgeRepresentation-Organization/id/nutuk_expression&gt; a frbr:Expression ;
+    dct:language wd:Q256 ;
+    frbr:embodiment &lt;https://kubrato.github.io/KnowledgeRepresentation-Organization/id/nutuk_manifestation&gt; ;
+    schema:name &quot;Nutuk (Turkish text)&quot; .
+
+&lt;https://kubrato.github.io/KnowledgeRepresentation-Organization/id/nutuk_item&gt; a frbr:Item ;
+    schema:name &quot;Nutuk (library copy)&quot; .
+
+&lt;https://kubrato.github.io/KnowledgeRepresentation-Organization/id/nutuk_manifestation&gt; a frbr:Manifestation ;
+    dct:issued &quot;1927&quot;^^xsd:gYear ;
+    frbr:exemplar &lt;https://kubrato.github.io/KnowledgeRepresentation-Organization/id/nutuk_item&gt; ;
+    schema:locationCreated wd:Q3640 ;
+    schema:name &quot;Nutuk (1927 edition)&quot; .
 
 wd:Q256 a crm:E56_Language ;
-    schema:name "Turkish" .
+    owl:sameAs dbpedia:Turkish_language ;
+    schema:name &quot;Turkish&quot; .
 
 wd:Q6030041 a crm:E36_Visual_Item ;
-    schema:name "The Six Arrows" .
+    owl:sameAs dbpedia:The_Six_Arrows ;
+    schema:name &quot;The Six Arrows&quot; .
 
 wd:Q269443 a skos:Concept ;
-    crm:P138i_has_representation wd:Q6030041 ;
     crm:P67_refers_to wd:Q5152 ;
-    schema:name "Kemalism" .
+    owl:sameAs dbpedia:Kemalism ;
+    skos:related wd:Q6030041 ;
+    schema:name &quot;Kemalism&quot; .
 
 wd:Q3640 a schema:City ;
     crm:P43_has_dimension 25.632 ;
     crm:P74i_is_current_or_former_residence_of wd:Q5152 ;
-    schema:name "Ankara" .
+    owl:sameAs dbpedia:Ankara ;
+    schema:name &quot;Ankara&quot; .
 
 wd:Q43 a schema:Country ;
     dct:language wd:Q256 ;
+    dct:subject wd:Q269443 ;
     crm:P108_has_produced wd:Q172872 ;
+    owl:sameAs dbpedia:Turkey ;
     wdt:P36 wd:Q3640 ;
-    schema:about wd:Q269443 ;
     schema:founder wd:Q5152 ;
-    schema:foundingDate "1923-10-29"^^xsd:date ;
-    schema:name "Republic of Turkey" .
+    schema:foundingDate &quot;1923-10-29&quot;^^xsd:date ;
+    schema:name &quot;Republic of Turkey&quot; .
 
-wd:Q5152 a crm:E21_Person ;
-    schema:name "Mustafa Kemal Atatürk" .</code></pre>
+wd:Q5152 a crm:E21_Person,
+        foaf:Person ;
+    owl:sameAs dbpedia:Mustafa_Kemal_Atatürk ;
+    schema:name &quot;Mustafa Kemal Atatürk&quot; .</code></pre>
 </details>
   </main>
 

@@ -7,5 +7,5 @@ tl_banknote,is issued by,tcmb
 # === Conceptual model — tl_banknote = crm:E84_Information_Carrier ===
 # has type     -> rdf:type                     (sınıf: crm:E84_Information_Carrier)
 # has title    -> schema:name                  crm:E84_Information_Carrier -> Literal
-# depicts      -> crm:P138_represents          crm:E84_Information_Carrier -> crm:E21_Person
+# depicts      -> foaf:depicts                 crm:E84_Information_Carrier -> crm:E21_Person
 # is issued by -> crm:P108i_was_produced_by    crm:E84_Information_Carrier -> crm:E74_Group

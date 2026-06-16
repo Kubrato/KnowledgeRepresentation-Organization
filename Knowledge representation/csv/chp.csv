@@ -13,5 +13,5 @@ chp,has flag,six_arrows
 # has foundation date -> schema:foundingDate            schema:PoliticalParty -> xsd:date
 # is founded by       -> schema:founder                 schema:PoliticalParty -> crm:E21_Person
 # is based in         -> schema:location                schema:PoliticalParty -> schema:City
-# follows             -> schema:about                   schema:PoliticalParty -> skos:Concept
+# follows             -> dct:subject                    schema:PoliticalParty -> skos:Concept
 # has flag            -> crm:P138i_has_representation    schema:PoliticalParty -> crm:E36_Visual_Item

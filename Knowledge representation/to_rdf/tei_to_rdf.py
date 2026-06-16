@@ -14,12 +14,14 @@
 import os
 import xml.etree.ElementTree as ET          # built-in library to read XML
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF            # gives us rdf:type
+from rdflib.namespace import RDF, FOAF      # rdf:type and foaf:
 
 # ----- 1. Namespaces (the same prefixes used in our conceptual model) -----
 CRM    = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 SCHEMA = Namespace("https://schema.org/")
 SKOS   = Namespace("http://www.w3.org/2004/02/skos/core#")
+DCT    = Namespace("http://purl.org/dc/terms/")
+FRBR   = Namespace("http://purl.org/vocab/frbr/core#")
 WDT    = Namespace("http://www.wikidata.org/prop/direct/")
 WD     = Namespace("http://www.wikidata.org/entity/")   # our entities ARE Wikidata entities
 
@@ -43,16 +45,19 @@ TYPES = {
     "ankara":          SCHEMA.City,
     "kemalism":        SKOS.Concept,
     "law_5816":        SCHEMA.Legislation,
+    "nutuk":           FRBR.Work,       # Nutuk is a frbr:Work (see csv/nutuk.csv for the full WEMI)
 }
 
 # Each relation name used in the TEI <listRelation> maps to a property.
+# These must match the same predicates in csv_to_rdf.py so the two datasets
+# merge cleanly (one edge -> one property, not two).
 RELATIONS = {
     "founder":   SCHEMA.founder,
-    "represents": CRM.P138_represents,
-    "about":     SCHEMA.about,
-    "author":    SCHEMA.author,
+    "represents": FOAF.depicts,
+    "about":     DCT.subject,
+    "author":    FOAF.maker,
     "refers_to": CRM.P67_refers_to,
-    "location":  SCHEMA.location,
+    "location":  DCT.spatial,
     "capital":   WDT.P36,
 }
 
@@ -68,6 +73,9 @@ g = Graph()
 g.bind("crm", CRM)
 g.bind("schema", SCHEMA)
 g.bind("skos", SKOS)
+g.bind("dct", DCT)
+g.bind("foaf", FOAF)
+g.bind("frbr", FRBR)
 g.bind("wdt", WDT)
 g.bind("wd", WD)
 
@@ -106,6 +114,9 @@ for el in root.iter():
 
     # Statement 1: the entity is an instance of its class.
     g.add((uri, RDF.type, TYPES[xml_id]))
+    # A person is also a foaf:Person (CIDOC-CRM + FOAF together).
+    if TYPES[xml_id] == CRM.E21_Person:
+        g.add((uri, RDF.type, FOAF.Person))
     # Statement 2: the entity has a name (a string literal).
     g.add((uri, SCHEMA.name, Literal(get_name(el))))
 

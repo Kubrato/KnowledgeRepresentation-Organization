@@ -10,6 +10,6 @@ law_5816,protects,anitkabir
 # has type      -> rdf:type       (sınıf: schema:Legislation)
 # has title     -> schema:name    schema:Legislation -> Literal
 # has date      -> dct:date       schema:Legislation -> xsd:date
-# is about      -> schema:about    schema:Legislation -> crm:E21_Person
-# is enacted by -> schema:creator  schema:Legislation -> crm:E74_Group
+# is about      -> dct:subject     schema:Legislation -> crm:E21_Person
+# is enacted by -> dct:creator     schema:Legislation -> crm:E74_Group
 # protects      -> schema:about    schema:Legislation -> schema:Mausoleum

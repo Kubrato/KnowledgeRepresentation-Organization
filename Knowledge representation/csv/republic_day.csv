@@ -10,6 +10,6 @@ republic_day,had participant,ataturk
 # has type         -> rdf:type                 (sınıf: schema:Event)
 # has title        -> schema:name              schema:Event -> Literal
 # has date         -> dct:date                 schema:Event -> xsd:date
-# commemorates     -> schema:about             schema:Event -> schema:Country
-# is celebrated in -> schema:location          schema:Event -> schema:City
+# commemorates     -> dct:subject              schema:Event -> schema:Country
+# is celebrated in -> dct:spatial              schema:Event -> schema:City
 # had participant  -> crm:P11_had_participant  schema:Event -> crm:E21_Person

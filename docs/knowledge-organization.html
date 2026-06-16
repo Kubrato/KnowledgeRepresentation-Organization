@@ -55,14 +55,18 @@
       theoretical model, each triple statement was mapped into <strong>RDF
       syntax</strong>. Here the individual items disappear and only their
       <strong>classes and properties</strong> remain: each class appears once, and
-      arrows go from class to class. <br> Rather than inventing new terms, the model
-      reuses existing, widely adopted vocabularies:
+      arrows go from class to class. <br> Rather than inventing new terms, and rather
+      than leaning on just one or two sources, the model deliberately reuses a range
+      of existing, widely adopted vocabularies, each for what it describes best:
     </p>
     <ul>
-      <li><strong>Schema.org</strong> (<code>schema:</code>), the main source for general types such as Book, Movie, City, Event and Country.</li>
+      <li><strong>Schema.org</strong> (<code>schema:</code>), the main source for general types such as Movie, City, Event and Country.</li>
       <li><strong>CIDOC-CRM</strong> (<code>crm:</code>) for cultural-heritage-specific classes and properties: sites, people, physical dimensions and reference relations.</li>
-      <li><strong>SKOS</strong> (<code>skos:</code>) for the abstract concept (Kemalism).</li>
-      <li><strong>Dublin Core Terms</strong> (<code>dct:</code>) for dates and language.</li>
+      <li><strong>Dublin Core Terms</strong> (<code>dct:</code>) for dates, language, subject, creator and place (<code>dct:subject</code>, <code>dct:spatial</code>, <code>dct:issued</code>…).</li>
+      <li><strong>FOAF</strong> (<code>foaf:</code>) for people (<code>foaf:Person</code>, alongside CIDOC-CRM) and for authorship and depiction (<code>foaf:maker</code>, <code>foaf:depicts</code>).</li>
+      <li><strong>SKOS</strong> (<code>skos:</code>) for the abstract concept Kemalism and its relations (<code>skos:related</code>).</li>
+      <li><strong>FRBR</strong> (<code>frbr:</code>) to model the book <em>Nutuk</em> at its four levels — Work, Expression, Manifestation and Item.</li>
+      <li><strong>OWL</strong> (<code>owl:</code>) to link every entity to its <strong>DBpedia</strong> twin with <code>owl:sameAs</code>, connecting the dataset to the wider web.</li>
     </ul>
     <p>
       Literals were made explicit by declaring their datatype with the XML Schema
@@ -76,7 +80,7 @@
       Group</code>).
     </p>
     <figure>
-      <img src="assets/conceptual-model.webp" class="zoomable" alt="Conceptual model: ontology of classes and properties">
+      <img src="assets/ConceptualModel.webp" class="zoomable" alt="Conceptual model: ontology of classes and properties">
       <figcaption>Conceptual model: classes and properties only, no individuals.</figcaption>
     </figure>
 

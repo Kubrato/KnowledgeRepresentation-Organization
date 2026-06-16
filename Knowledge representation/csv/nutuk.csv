@@ -1,21 +1,46 @@
 subject,predicate,object
-nutuk,has type,book
+nutuk,has type,work
 nutuk,has title,Nutuk
-nutuk,has publication date,1927
-nutuk,has language,turkish_language
 nutuk,has author,ataturk
 nutuk,is about,kemalism
 nutuk,is about,turkey
-nutuk,is published in,ankara
 nutuk,is delivered to,chp
+nutuk,is realised in,nutuk_expression
+nutuk_expression,has type,expression
+nutuk_expression,has title,Nutuk (Turkish text)
+nutuk_expression,has language,turkish_language
+nutuk_expression,is embodied in,nutuk_manifestation
+nutuk_manifestation,has type,manifestation
+nutuk_manifestation,has title,Nutuk (1927 edition)
+nutuk_manifestation,has publication date,1927
+nutuk_manifestation,is published in,ankara
+nutuk_manifestation,is exemplified by,nutuk_item
+nutuk_item,has type,item
+nutuk_item,has title,Nutuk (library copy)
 #
-# === Conceptual model — nutuk = schema:Book (+ crm:E33_Linguistic_Object) ===
-# has type             -> rdf:type                (sınıf: schema:Book)
-# has title            -> schema:name             schema:Book -> Literal
-# has publication date -> schema:datePublished    schema:Book -> xsd:date
-# has language         -> dct:language            schema:Book -> crm:E56_Language
-# has author           -> schema:author           schema:Book -> crm:E21_Person
-# is about (kemalism)  -> schema:about            schema:Book -> skos:Concept
-# is about (turkey)    -> schema:about            schema:Book -> schema:Country
-# is published in      -> schema:locationCreated  schema:Book -> schema:City
-# is delivered to      -> schema:about (zayıf)    schema:Book -> schema:PoliticalParty
+# === Conceptual model — nutuk modelled with FRBR (WEMI) ===
+# The single "book" is split into the four FRBR levels:
+#   nutuk               = frbr:Work            (the speech as an abstract creation)
+#   nutuk_expression    = frbr:Expression      (its Turkish-language text)
+#   nutuk_manifestation = frbr:Manifestation   (the 1927 published edition)
+#   nutuk_item          = frbr:Item            (one physical library copy)
+#
+# Work level
+# has type        -> rdf:type             (sınıf: frbr:Work)
+# has title       -> schema:name          frbr:Work -> Literal
+# has author      -> foaf:maker           frbr:Work -> crm:E21_Person
+# is about        -> dct:subject          frbr:Work -> skos:Concept / schema:Country
+# is delivered to -> schema:about         frbr:Work -> schema:PoliticalParty
+# is realised in  -> frbr:realization     frbr:Work -> frbr:Expression
+# Expression level
+# has type        -> rdf:type             (sınıf: frbr:Expression)
+# has language    -> dct:language         frbr:Expression -> crm:E56_Language
+# is embodied in  -> frbr:embodiment      frbr:Expression -> frbr:Manifestation
+# Manifestation level
+# has type             -> rdf:type        (sınıf: frbr:Manifestation)
+# has publication date -> dct:issued      frbr:Manifestation -> xsd:gYear
+# is published in      -> schema:locationCreated   frbr:Manifestation -> schema:City
+# is exemplified by    -> frbr:exemplar   frbr:Manifestation -> frbr:Item
+# Item level
+# has type        -> rdf:type             (sınıf: frbr:Item)
+# has title       -> schema:name          frbr:Item -> Literal

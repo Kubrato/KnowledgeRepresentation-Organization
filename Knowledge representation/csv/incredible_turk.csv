@@ -9,7 +9,7 @@ incredible_turk,is about,turkey
 # === Conceptual model — incredible_turk = schema:Movie (+ crm:E73_Information_Object) ===
 # has type           -> rdf:type            (sınıf: schema:Movie)
 # has title          -> schema:name         schema:Movie -> Literal
-# has release date   -> schema:datePublished schema:Movie -> xsd:date
+# has release date   -> dct:issued          schema:Movie -> xsd:date
 # has genre          -> schema:genre        schema:Movie -> Literal
-# is about (ataturk) -> schema:about        schema:Movie -> crm:E21_Person
-# is about (turkey)  -> schema:about        schema:Movie -> schema:Country
+# is about (ataturk) -> dct:subject         schema:Movie -> crm:E21_Person
+# is about (turkey)  -> dct:subject         schema:Movie -> schema:Country

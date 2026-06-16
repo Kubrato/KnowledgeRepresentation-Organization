@@ -15,5 +15,5 @@ turkey,has official language,turkish_language
 # is founded by         -> schema:founder          schema:Country -> crm:E21_Person
 # has capital           -> wdt:P36 (schema:capital YOK) schema:Country -> schema:City
 # has currency          -> crm:P108_has_produced   schema:Country -> crm:E84_Information_Carrier
-# relates to            -> schema:about            schema:Country -> skos:Concept
+# relates to            -> dct:subject             schema:Country -> skos:Concept
 # has official language -> dct:language            schema:Country -> crm:E56_Language

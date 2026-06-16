@@ -12,9 +12,9 @@ anitkabir,hosts,republic_day
 # === Conceptual model — anitkabir = schema:Mausoleum (+ crm:E27_Site) ===
 # has type              -> rdf:type                 (sınıf: schema:Mausoleum)
 # has title             -> schema:name              schema:Mausoleum -> Literal
-# has construction date -> schema:dateCreated       schema:Mausoleum -> xsd:date
+# has construction date -> dct:created              schema:Mausoleum -> xsd:date
 # is dedicated to       -> crm:P67_refers_to        schema:Mausoleum -> crm:E21_Person
-# is located in         -> schema:location          schema:Mausoleum -> schema:City
+# is located in         -> dct:spatial              schema:Mausoleum -> schema:City
 # has architect         -> schema:architect         schema:Mausoleum -> crm:E21_Person
 # has area              -> crm:P43_has_dimension    schema:Mausoleum -> Literal
 # hosts                 -> crm:P7i_witnessed        schema:Mausoleum -> schema:Event

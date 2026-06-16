@@ -8,4 +8,4 @@ kemalism,is defined by,six_arrows
 # has type      -> rdf:type                      (sınıf: skos:Concept)
 # has title     -> schema:name                   skos:Concept -> Literal
 # is based on   -> crm:P67_refers_to             skos:Concept -> crm:E21_Person
-# is defined by -> crm:P138i_has_representation   skos:Concept -> crm:E36_Visual_Item
+# is defined by -> skos:related                  skos:Concept -> crm:E36_Visual_Item
