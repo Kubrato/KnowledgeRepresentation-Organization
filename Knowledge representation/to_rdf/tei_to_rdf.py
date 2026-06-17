@@ -39,7 +39,6 @@ TYPES = {
     "chp":             SCHEMA.PoliticalParty,
     "anitkabir":       SCHEMA.Mausoleum,
     "tl_banknote":     CRM.E84_Information_Carrier,
-    "nutuk":           SCHEMA.Book,
     "incredible_turk": SCHEMA.Movie,
     "republic_day":    SCHEMA.Event,
     "ankara":          SCHEMA.City,
