@@ -336,6 +336,31 @@ img.zoomable.zoomed {
 }
 
 /* Footer */
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 820px;
+  margin: 14px auto 0;
+  padding: 0 22px;
+}
+
+.pager a {
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 0.9rem;
+  background: none;
+  padding: 0;
+}
+
+.pager a:hover {
+  color: var(--gold);
+  background: none;
+  text-decoration: underline;
+}
+
+.pager .sep { color: #999; }
+
 footer {
   background: var(--teal-deep);
   color: #cdc3ac;
